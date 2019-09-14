@@ -1,0 +1,96 @@
+﻿<Window x:Class="_2019_9_3_Dating_app_XAML_.Views.CreateAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
+        mc:Ignorable="d"
+        Title="CreateAccount" Height="450" Width="455">
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Create Account" 
+               Grid.Row="0" 
+               FontSize="35" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            
+            <Label x:Name="lblCreateEmail" 
+                   Content="Email" 
+                   FontSize="20" 
+                   Margin="0 21 0 0" />
+            
+            <TextBox x:Name="txtBoxCreateEmail" 
+                     ContentElement.TextInput="TextBox_TextInputCreateEmail"
+                     Height="30" 
+                     Width="250" 
+                     Margin="130 0 0 0" 
+                     BorderThickness="2" />
+            
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            
+            <Label x:Name="lblCreatePassword" 
+                   Content="Password" 
+                   FontSize="20" 
+                   Margin="0 21 0 0" />
+            
+            <TextBox x:Name="txtBoxCreatePassword" 
+                     ContentElement.TextInput="TextBox_TextInputCreatePassword"
+                     Height="30" 
+                     Width="250" 
+                     Margin="95 0 0 0" 
+                     BorderThickness="2" />
+            
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            
+            <Label x:Name="lblCreateConfirmPassword" 
+                   Content="Confirm Password" 
+                   FontSize="20" 
+                   Margin="0 21 0 0" />
+            
+            <TextBox x:Name="txtBoxCreateConfirmPass" 
+                     ContentElement.TextInput="TextBox_TextInputConfirmPass"
+                     Height="30" 
+                     Width="250" 
+                     Margin="19 0 0 0" 
+                     BorderThickness="2" />
+            
+        </StackPanel>
+
+        <Button x:Name="btnGoBack" 
+                Margin="10 0 0 0"
+                Height="30" 
+                Width="200" 
+                HorizontalAlignment="Left" 
+                Content="Go Back"
+                FontSize="20" 
+                Grid.Row="4" 
+                Click="BtnGoBack_Click" />
+        
+        <Button x:Name="btnCreateAccount" 
+                Margin="235 0 0 0"
+                Height="30" 
+                Width="200" 
+                HorizontalAlignment="Left" 
+                Content="Create Account"
+                FontSize="20" 
+                Grid.Row="4" 
+                Click="BtnCreateAccount_Click"/>
+        
+    </Grid>
+</Window>

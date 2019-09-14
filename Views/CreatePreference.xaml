@@ -1,0 +1,103 @@
+﻿<Window x:Class="_2019_9_3_Dating_app_XAML_.Views.CreatePreference"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
+        xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
+        mc:Ignorable="d"
+        Title="CreatePreference" Height="450" Width="483">
+    <Window.DataContext>
+        <viewModels:CreatePreferencesViewModel x:Name="myCreatePreferencesViewModel" />
+    </Window.DataContext>
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Preferences"
+               Grid.Row="0"
+               FontSize="35"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+
+            <Label x:Name="lblCreateGenderPref"
+                   Content="Gender" 
+                   FontSize="20" 
+                   Margin="0 50 0 0"/>
+
+            <ComboBox x:Name="cmbBoxCreateGenderPref"
+                     ContentElement.TextInput="CmbBoxCreateGenderPref_TextInput"
+                     Height="30" 
+                     Width="250" 
+                     Margin="130 0 0 0" 
+                     BorderThickness="2">
+
+                <ComboBoxItem>Male</ComboBoxItem>
+                <ComboBoxItem>Female</ComboBoxItem>
+                <ComboBoxItem>Other</ComboBoxItem>
+                
+            </ComboBox>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+
+            <Label x:Name="lblCreateAgeGroupPref"
+                   Content="Age Group" 
+                   FontSize="20" 
+                   Margin="0 50 0 0"/>
+
+            <TextBox x:Name="txtBoxCreateMinAgePref"
+                     ContentElement.TextInput="TxtBoxCreateMinAgePref_TextInput"
+                     Height="30" 
+                     Width="50" 
+                     Margin="100 0 0 0" 
+                     BorderThickness="2"
+                     Text="{Binding createRepo.MinAge, Mode=OneWayToSource}" />
+
+            <Label x:Name="lblDash"
+                   Content="-" 
+                   FontSize="20" 
+                   Margin="0 35 0 0"/>
+
+            <TextBox x:Name="txtBoxCreateMaxAgePref"
+                     ContentElement.TextInput="TxtBoxCreateMaxAgePref_TextInput"
+                     Height="30" 
+                     Width="50" 
+                     Margin="0 0 0 0" 
+                     BorderThickness="2"
+                     Text="{Binding createRepo.MaxAge, Mode=OneWayToSource}" />
+
+        </StackPanel>
+
+        <Button x:Name="btnGoBack" 
+                Margin="10 0 0 0"
+                Height="30" 
+                Width="200" 
+                HorizontalAlignment="Left" 
+                Content="Go Back"
+                FontSize="20" 
+                Grid.Row="6" 
+                Click="BtnGoBack_Click"/>
+
+        <Button x:Name="btnCreatePreferences" 
+                Margin="266 0 0 0"
+                Height="30" 
+                Width="200" 
+                HorizontalAlignment="Left" 
+                Content="Create Profile"
+                FontSize="20" 
+                Grid.Row="6" 
+                Click="BtnCreatePreferences_Click"/>
+
+    </Grid>
+</Window>
