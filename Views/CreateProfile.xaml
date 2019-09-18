@@ -144,7 +144,7 @@
 
             <TextBox x:Name="txtBoxCreateShortDescProf"
                      ContentElement.TextInput="TxtBoxCreateShortDescProf_TextInput"
-                     Height="30" 
+                     Height="40" 
                      Width="250" 
                      Margin="60 0 0 0" 
                      BorderThickness="2" />
@@ -152,7 +152,7 @@
         </StackPanel>
 
         <Button x:Name="btnGoBack" 
-                Margin="10 0 0 0"
+                Margin="25 0 0 0"
                 Height="30" 
                 Width="200" 
                 HorizontalAlignment="Left" 
@@ -162,7 +162,7 @@
                 Click="BtnGoBack_Click"/>
 
         <Button x:Name="btnCreateProfile" 
-                Margin="266 0 0 0"
+                Margin="250 0 0 0"
                 Height="30" 
                 Width="200" 
                 HorizontalAlignment="Left" 

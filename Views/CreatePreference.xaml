@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
         mc:Ignorable="d"
-        Title="CreatePreference" Height="450" Width="483">
+        Title="CreatePreference" Height="250" Width="380">
     <Window.DataContext>
         <viewModels:CreatePreferencesViewModel x:Name="myCreatePreferencesViewModel" />
     </Window.DataContext>
@@ -32,13 +32,13 @@
             <Label x:Name="lblCreateGenderPref"
                    Content="Gender" 
                    FontSize="20" 
-                   Margin="0 50 0 0"/>
+                   Margin="20 0 0 0"/>
 
             <ComboBox x:Name="cmbBoxCreateGenderPref"
                      ContentElement.TextInput="CmbBoxCreateGenderPref_TextInput"
                      Height="30" 
-                     Width="250" 
-                     Margin="130 0 0 0" 
+                     Width="120" 
+                     Margin="135 0 0 0" 
                      BorderThickness="2">
 
                 <ComboBoxItem>Male</ComboBoxItem>
@@ -54,20 +54,20 @@
             <Label x:Name="lblCreateAgeGroupPref"
                    Content="Age Group" 
                    FontSize="20" 
-                   Margin="0 50 0 0"/>
+                   Margin="20 0 0 0"/>
 
             <TextBox x:Name="txtBoxCreateMinAgePref"
                      ContentElement.TextInput="TxtBoxCreateMinAgePref_TextInput"
                      Height="30" 
                      Width="50" 
-                     Margin="100 0 0 0" 
+                     Margin="105 0 0 0" 
                      BorderThickness="2"
                      Text="{Binding createRepo.MinAge, Mode=OneWayToSource}" />
 
             <Label x:Name="lblDash"
                    Content="-" 
                    FontSize="20" 
-                   Margin="0 35 0 0"/>
+                   Margin="0 5 0 0"/>
 
             <TextBox x:Name="txtBoxCreateMaxAgePref"
                      ContentElement.TextInput="TxtBoxCreateMaxAgePref_TextInput"
@@ -80,9 +80,9 @@
         </StackPanel>
 
         <Button x:Name="btnGoBack" 
-                Margin="10 0 0 0"
+                Margin="20 0 0 0"
                 Height="30" 
-                Width="200" 
+                Width="150" 
                 HorizontalAlignment="Left" 
                 Content="Go Back"
                 FontSize="20" 
@@ -90,9 +90,9 @@
                 Click="BtnGoBack_Click"/>
 
         <Button x:Name="btnCreatePreferences" 
-                Margin="266 0 0 0"
+                Margin="200 0 0 0"
                 Height="30" 
-                Width="200" 
+                Width="150" 
                 HorizontalAlignment="Left" 
                 Content="Create Profile"
                 FontSize="20" 

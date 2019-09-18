@@ -18,6 +18,6 @@ namespace _2019_9_3_Dating_app_XAML_.Assets
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion //INotifyPropertyChanged
-        protected string sqlCon = @"Data Source=.\dating_app.db;Version=3";
+        protected string sqlCon = @"Data Source=..\..\Database\dating_app.db;Version=3";
     }
 }

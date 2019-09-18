@@ -31,6 +31,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             {
                 if (myLoginViewModel.loginRepo.login(txtBoxEmail.Text, txtBoxUserPassword.Text))
                 {
+                    App.Current.Resources["loginEmail"] = txtBoxEmail.Text;
                     Dashboard dashboard = new Dashboard();
                     dashboard.Show();
                     this.Close();

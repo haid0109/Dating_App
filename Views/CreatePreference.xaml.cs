@@ -63,8 +63,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 myCreatePreferencesViewModel.createRepo.createProfile();
                 myCreatePreferencesViewModel.createRepo.createPreferences();
 
-                Dashboard dashboard = new Dashboard();
-                dashboard.Show();
+                Login login = new Login();
+                login.Show();
                 this.Close();
             }
             catch (Exception exc) { MessageBox.Show(exc.Message); }

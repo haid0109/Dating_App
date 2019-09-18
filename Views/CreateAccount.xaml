@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         mc:Ignorable="d"
-        Title="CreateAccount" Height="450" Width="455">
+        Title="CreateAccount" Height="325" Width="455">
     <Grid>
         
         <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
             <Label x:Name="lblCreateEmail" 
                    Content="Email" 
                    FontSize="20" 
-                   Margin="0 21 0 0" />
+                   Margin="0 10 0 0" />
             
             <TextBox x:Name="txtBoxCreateEmail" 
                      ContentElement.TextInput="TextBox_TextInputCreateEmail"
@@ -45,7 +45,7 @@
             <Label x:Name="lblCreatePassword" 
                    Content="Password" 
                    FontSize="20" 
-                   Margin="0 21 0 0" />
+                   Margin="0 10 0 0" />
             
             <TextBox x:Name="txtBoxCreatePassword" 
                      ContentElement.TextInput="TextBox_TextInputCreatePassword"
@@ -61,7 +61,7 @@
             <Label x:Name="lblCreateConfirmPassword" 
                    Content="Confirm Password" 
                    FontSize="20" 
-                   Margin="0 21 0 0" />
+                   Margin="0 10 0 0" />
             
             <TextBox x:Name="txtBoxCreateConfirmPass" 
                      ContentElement.TextInput="TextBox_TextInputConfirmPass"

@@ -64,9 +64,9 @@
         <StackPanel Orientation="Horizontal" Grid.Row="3">
 
             <Button x:Name="btnLogin" 
-                    Margin="50 0 0 0"
+                    Margin="20 0 0 0"
                     Height="30" 
-                    Width="100" 
+                    Width="150" 
                     HorizontalAlignment="Left" 
                     Content="Login"
                     FontSize="20" 
@@ -75,7 +75,7 @@
             <Button x:Name="btnCreateAccount" 
                     Margin="29 0 0 0"
                     Height="30" 
-                    Width="180" 
+                    Width="150" 
                     HorizontalAlignment="Left" 
                     Content="Create Account"
                     FontSize="20" 
