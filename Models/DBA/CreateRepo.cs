@@ -125,6 +125,11 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
         {
             SQLiteConnection Con = new SQLiteConnection(sqlCon);
             Con.Open();
+
+            //How you should do it:
+            //SqlCommand SqlCmd = new SqlCommand("INSERT INTO Users([email], [password]) VALUES(@email, @password)", Con);
+            //SqlCmd.Parameters.Add("@email", email);
+
             SQLiteCommand SqlCmd = new SQLiteCommand("INSERT INTO Users([email], [password]) VALUES('" + Email + "', '" + Password + "')", Con);
 
             SqlCmd.ExecuteNonQuery();
