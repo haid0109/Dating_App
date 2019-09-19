@@ -47,12 +47,13 @@
                    FontSize="20" 
                    Margin="0 10 0 0" />
             
-            <TextBox x:Name="txtBoxCreatePassword" 
-                     ContentElement.TextInput="TextBox_TextInputCreatePassword"
-                     Height="30" 
-                     Width="250" 
-                     Margin="95 0 0 0" 
-                     BorderThickness="2" />
+            <PasswordBox x:Name="txtBoxCreatePassword"
+                         ContentElement.TextInput="TextBox_TextInputCreatePassword"
+                         Height="30" 
+                         Width="250" 
+                         Margin="95 0 0 0" 
+                         BorderThickness="2"
+                         PasswordChar="*" />
             
         </StackPanel>
 
@@ -63,19 +64,20 @@
                    FontSize="20" 
                    Margin="0 10 0 0" />
             
-            <TextBox x:Name="txtBoxCreateConfirmPass" 
-                     ContentElement.TextInput="TextBox_TextInputConfirmPass"
-                     Height="30" 
-                     Width="250" 
-                     Margin="19 0 0 0" 
-                     BorderThickness="2" />
+            <PasswordBox x:Name="txtBoxCreateConfirmPass" 
+                         ContentElement.TextInput="TextBox_TextInputConfirmPass"
+                         Height="30" 
+                         Width="250" 
+                         Margin="19 0 0 0" 
+                         BorderThickness="2"
+                         PasswordChar="*" />
             
         </StackPanel>
 
         <Button x:Name="btnGoBack" 
-                Margin="10 0 0 0"
+                Margin="40 0 0 0"
                 Height="30" 
-                Width="200" 
+                Width="150" 
                 HorizontalAlignment="Left" 
                 Content="Go Back"
                 FontSize="20" 
@@ -83,11 +85,11 @@
                 Click="BtnGoBack_Click" />
         
         <Button x:Name="btnCreateAccount" 
-                Margin="235 0 0 0"
+                Margin="250 0 0 0"
                 Height="30" 
-                Width="200" 
+                Width="150" 
                 HorizontalAlignment="Left" 
-                Content="Create Account"
+                Content="Next"
                 FontSize="20" 
                 Grid.Row="4" 
                 Click="BtnCreateAccount_Click"/>

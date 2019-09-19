@@ -152,9 +152,9 @@
         </StackPanel>
 
         <Button x:Name="btnGoBack" 
-                Margin="25 0 0 0"
+                Margin="50 0 0 0"
                 Height="30" 
-                Width="200" 
+                Width="150" 
                 HorizontalAlignment="Left" 
                 Content="Go Back"
                 FontSize="20" 
@@ -162,11 +162,11 @@
                 Click="BtnGoBack_Click"/>
 
         <Button x:Name="btnCreateProfile" 
-                Margin="250 0 0 0"
+                Margin="280 0 0 0"
                 Height="30" 
-                Width="200" 
+                Width="150" 
                 HorizontalAlignment="Left" 
-                Content="Create Profile"
+                Content="Next"
                 FontSize="20" 
                 Grid.Row="6" 
                 Click="BtnCreateProfile_Click"/>

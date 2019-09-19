@@ -49,6 +49,17 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 return;
             }
 
+            if((Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")) - Convert.ToInt32(txtBoxCreateBirthYear.Text + txtBoxCreateBirthMonth.Text + txtBoxCreateBirthDay.Text)) / 10000 < 18)
+            {
+                MessageBox.Show("You are too young to use this dating app.");
+                return;
+            }
+            else if ((Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")) - Convert.ToInt32(txtBoxCreateBirthYear.Text + txtBoxCreateBirthMonth.Text + txtBoxCreateBirthDay.Text)) / 10000 > 125)
+            {
+                MessageBox.Show("You are too old to use this dating app.");
+                return;
+            }
+
             try
             {
                 App.Current.Resources["createProfileFirstName"] = txtBoxCreateFirstNameProf.Text;

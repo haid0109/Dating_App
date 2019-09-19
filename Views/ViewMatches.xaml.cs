@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace _2019_9_3_Dating_app_XAML_.Views
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for ViewMatches.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class ViewMatches : Window
     {
-        public Dashboard()
+        public ViewMatches()
         {
             InitializeComponent();
-        }
-
-        private void ComboBox_Drop(object sender, DragEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextInput(object sender, TextCompositionEventArgs e)
-        {
-
         }
     }
 }

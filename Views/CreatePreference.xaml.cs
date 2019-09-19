@@ -43,6 +43,22 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 MessageBox.Show("You need to choose a preference.");
                 return;
             }
+            
+            if(Convert.ToInt16(txtBoxCreateMinAgePref.Text) < 18 && Convert.ToInt16(txtBoxCreateMaxAgePref.Text) > 125)
+            {
+                MessageBox.Show("That age group is too young and too old for you.");
+                return;
+            }
+            else if (Convert.ToInt16(txtBoxCreateMinAgePref.Text) < 18)
+            {
+                MessageBox.Show("That age group is too young for you.");
+                return;
+            }
+            else if (Convert.ToInt16(txtBoxCreateMaxAgePref.Text) > 125)
+            {
+                MessageBox.Show("That age group is too old for you.");
+                return;
+            }
 
             try
             {

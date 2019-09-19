@@ -61,6 +61,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\DBA\FindMatchesRepo.cs" />
+    <Compile Include="Models\DBA\ViewMatchesRepo.cs" />
+    <Compile Include="SELECT\SHOW.xaml.cs">
+      <DependentUpon>SHOW.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\FindMatchesViewModel.cs" />
+    <Compile Include="ViewModels\ViewMatchesViewModel.cs" />
+    <Compile Include="Views\FindMatches.xaml.cs">
+      <DependentUpon>FindMatches.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewMatches.xaml.cs">
+      <DependentUpon>ViewMatches.xaml</DependentUpon>
+    </Compile>
+    <Page Include="SELECT\SHOW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CreateAccount.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,22 +94,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Dashboard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Assets\Base.cs" />
     <Compile Include="Models\DBA\CreateRepo.cs" />
-    <Compile Include="Models\DBA\DashboardRepo.cs" />
     <Compile Include="Models\DBA\LoginRepo.cs" />
     <Compile Include="ViewModels\CreateAccountViewModel.cs" />
     <Compile Include="ViewModels\CreatePreferencesViewModel.cs" />
     <Compile Include="ViewModels\CreateProfileViewModel.cs" />
-    <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Views\CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
@@ -106,10 +117,14 @@
     <Compile Include="Views\CreateProfile.xaml.cs">
       <DependentUpon>CreateProfile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Dashboard.xaml.cs">
-      <DependentUpon>Dashboard.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="Views\FindMatches.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewMatches.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

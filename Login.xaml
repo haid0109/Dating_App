@@ -51,13 +51,13 @@
                    FontSize="20" 
                    Margin="0 12 0 0" />
 
-            <TextBox x:Name="txtBoxUserPassword" 
-                     ContentElement.TextInput="TextBox_TextInputPassword"
-                     Height="30" 
-                     Width="250" 
-                     Margin="19 0 0 0" 
-                     BorderThickness="2"
-                     Text="{Binding loginRepo.Password, Mode=OneWayToSource}" />
+            <PasswordBox x:Name="txtBoxUserPassword" 
+                         ContentElement.TextInput="TextBox_TextInputPassword"
+                         Height="30" 
+                         Width="250" 
+                         Margin="19 0 0 0" 
+                         BorderThickness="2"
+                         PasswordChar="*" />
 
         </StackPanel>
 
@@ -80,6 +80,15 @@
                     Content="Create Account"
                     FontSize="20" 
                     Click="BtnCreateAccount_Click" />
+
+            <Button x:Name="SELECTData" 
+                    Margin="-175 50 0 0"
+                    Height="10" 
+                    Width="20" 
+                    HorizontalAlignment="Left" 
+                    Content=""
+                    FontSize="20" 
+                    Click="SELECTData_Click"/>
 
         </StackPanel>
     </Grid>

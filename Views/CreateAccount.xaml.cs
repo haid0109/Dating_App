@@ -35,10 +35,10 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         {
             try
             {
-                if (txtBoxCreatePassword.Text == txtBoxCreateConfirmPass.Text)
+                if (txtBoxCreatePassword.Password == txtBoxCreateConfirmPass.Password)
                 {
                     App.Current.Resources["createAccountEmail"] = txtBoxCreateEmail.Text;
-                    App.Current.Resources["createAccountPassword"] = txtBoxCreatePassword.Text;
+                    App.Current.Resources["createAccountPassword"] = txtBoxCreatePassword.Password;
 
                     CreateProfile createProfile = new CreateProfile();
                     createProfile.Show();

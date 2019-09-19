@@ -1,4 +1,5 @@
-﻿using _2019_9_3_Dating_app_XAML_.ViewModels;
+﻿using _2019_9_3_Dating_app_XAML_.SELECT;
+using _2019_9_3_Dating_app_XAML_.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     public partial class Login : Window
     {
         public Login() { InitializeComponent(); }
-
         private void TextBox_TextInputEmail(object sender, TextCompositionEventArgs e) { }
         private void TextBox_TextInputPassword(object sender, TextCompositionEventArgs e) { }
 
@@ -29,11 +29,11 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         {
             try
             {
-                if (myLoginViewModel.loginRepo.login(txtBoxEmail.Text, txtBoxUserPassword.Text))
+                if (myLoginViewModel.loginRepo.login(txtBoxEmail.Text, txtBoxUserPassword.Password))
                 {
                     App.Current.Resources["loginEmail"] = txtBoxEmail.Text;
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.Show();
+                    FindMatches findMatches = new FindMatches();
+                    findMatches.Show();
                     this.Close();
                 }
                 else { MessageBox.Show("User does not exist"); }
@@ -45,6 +45,13 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         {
             CreateAccount createAccount = new CreateAccount();
             createAccount.Show();
+            this.Close();
+        }
+
+        private void SELECTData_Click(object sender, RoutedEventArgs e)
+        {
+            SHOW sshow = new SHOW();
+            sshow.Show();
             this.Close();
         }
     }
