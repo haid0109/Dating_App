@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _2019_9_3_Dating_app_XAML_.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class FindMatches : Window
     {
-        public FindMatches() { InitializeComponent(); }
-
-
+        public FindMatches() { InitializeComponent(); myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString()); }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using _2019_9_3_Dating_app_XAML_.SELECT;
-using _2019_9_3_Dating_app_XAML_.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

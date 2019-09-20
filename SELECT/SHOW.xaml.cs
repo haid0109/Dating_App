@@ -31,10 +31,29 @@ namespace _2019_9_3_Dating_app_XAML_.SELECT
         {
             SQLiteConnection con = new SQLiteConnection(@"Data Source=..\..\Database\dating_app.db;Version=3");
             con.Open();
+            //SQLiteDataAdapter SqlDA = new SQLiteDataAdapter("SELECT * FROM Users " +
+            //                                                "INNER JOIN Profiles ON Users.userID = Profiles.userID " +
+            //                                                "INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
+            //                                                "INNER JOIN Ages ON Profiles.profileID = Ages.profileID", con);
+            //SQLiteDataAdapter SqlDA = new SQLiteDataAdapter("SELECT * FROM Users " +
+            //"INNER JOIN Profiles ON Users.userID = Profiles.userID " +
+            //"INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
+            //"INNER JOIN Ages ON Profiles.profileID = Ages.profileID " +
+            //"LEFT JOIN Liked ON Profiles.profileID = Liked.profileID " +
+            //"OR Profiles.profileID = Liked.shownProfileID " +
+            //"WHERE Users.email = '" + 1 + "' ", con);
             SQLiteDataAdapter SqlDA = new SQLiteDataAdapter("SELECT * FROM Users " +
-                                                            "INNER JOIN Profiles ON Users.userID = Profiles.userID " +
-                                                            "INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
-                                                            "INNER JOIN Ages ON Profiles.profileID = Ages.profileID", con);
+            "INNER JOIN Profiles ON Users.userID = Profiles.userID " +
+            "INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
+            "INNER JOIN Ages ON Profiles.profileID = Ages.profileID " +
+            "LEFT JOIN Liked ON Profiles.profileID = Liked.profileID " +
+            "OR Profiles.profileID = Liked.shownProfileID " +
+            "WHERE Profiles.gender = 'F' " +
+            "AND Ages.age >= 18 " +
+            "AND Ages.age <= 20 " +
+            "AND Preferences.gender = 'M' " +
+            "AND Preferences.minAge >= 18 " +
+            "AND Preferences.maxAge <= '20' ", con);
             DataTable DT = new DataTable();
             SqlDA.Fill(DT);
             dataGrid.ItemsSource = DT.DefaultView;
