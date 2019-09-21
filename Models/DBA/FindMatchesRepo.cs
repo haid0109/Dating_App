@@ -65,12 +65,12 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             "INNER JOIN Ages ON Profiles.profileID = Ages.profileID " +
             "LEFT JOIN Liked ON Profiles.profileID = Liked.profileID " +
             "OR Profiles.profileID = Liked.shownProfileID " +
-            "WHERE Profiles.gender = 'F' " +
-            "AND Ages.age >= 18 " +
-            "AND Ages.age <= 20 " +
-            "AND Preferences.gender = 'M' " +
-            "AND Preferences.minAge >= 18 " +
-            "AND Preferences.maxAge <= '20' ", Con);
+            "WHERE Profiles.gender = '" + myPrefGender + "' " +
+            "AND Ages.age >= " + myPrefMinAge + " " +
+            "AND Ages.age <= " + myPrefMaxAge + " " +
+            "AND Preferences.gender = '" + myGender + "' " +
+            "AND Preferences.minAge <= " + myAge + " " +
+            "AND Preferences.maxAge >= " + myAge + " ", Con);
 
             SQLiteDataAdapter SqlDA = new SQLiteDataAdapter(SqlCmd);
             DataTable DT = new DataTable();
@@ -78,12 +78,12 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             DataRow row = DT.Rows[0];
             Con.Close();
 
-            myProfileID = row[3].ToString();
-            myGender = row[6].ToString();
-            myAge = row[15].ToString();
-            myPrefGender = row[11].ToString();
-            myPrefMinAge = row[12].ToString();
-            myPrefMaxAge = row[13].ToString();
+            theirProfileID = row[3].ToString();
+            theirGender = row[6].ToString();
+            theirAge = row[15].ToString();
+            theirPrefGender = row[11].ToString();
+            theirPrefMinAge = row[12].ToString();
+            theirPrefMaxAge = row[13].ToString();
         }
     }
 }
