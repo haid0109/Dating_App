@@ -26,9 +26,12 @@ namespace _2019_9_3_Dating_app_XAML_.SELECT
         {
             InitializeComponent();
         }
+        private int anumber = 0;
 
         private void getData_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(anumber.ToString());
+            anumber++;
             SQLiteConnection Con = new SQLiteConnection(@"Data Source=..\..\Database\dating_app.db;Version=3");
             Con.Open();
             //SQLiteDataAdapter SqlDA = new SQLiteDataAdapter("SELECT * FROM Users " +

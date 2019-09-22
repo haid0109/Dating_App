@@ -20,11 +20,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
         public string myPrefMaxAge { get; set; }
 
         public string theirProfileID { get; set; }
-        public string theirGender { get; set; }
         public string theirAge { get; set; }
-        public string theirPrefGender { get; set; }
-        public string theirPrefMinAge { get; set; }
-        public string theirPrefMaxAge { get; set; }
 
         private void findMe(string email)
         {
@@ -81,18 +77,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             Con.Close();
 
             theirProfileID = row[3].ToString();
-            theirGender = row[6].ToString();
             theirAge = row[15].ToString();
-            theirPrefGender = row[11].ToString();
-            theirPrefMinAge = row[12].ToString();
-            theirPrefMaxAge = row[13].ToString();
-
-            MessageBox.Show(theirProfileID);
-            MessageBox.Show(theirGender);
-            MessageBox.Show(theirAge);
-            MessageBox.Show(theirPrefGender);
-            MessageBox.Show(theirPrefMinAge);
-            MessageBox.Show(theirPrefMaxAge);
         }
     }
 }
