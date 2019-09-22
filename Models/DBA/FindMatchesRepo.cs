@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 {
@@ -55,6 +56,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 
         public void findThem(string email)
         {
+            findMe(email);
             SQLiteConnection Con = new SQLiteConnection(sqlCon);
             Con.Open();
 
@@ -84,6 +86,13 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             theirPrefGender = row[11].ToString();
             theirPrefMinAge = row[12].ToString();
             theirPrefMaxAge = row[13].ToString();
+
+            MessageBox.Show(theirProfileID);
+            MessageBox.Show(theirGender);
+            MessageBox.Show(theirAge);
+            MessageBox.Show(theirPrefGender);
+            MessageBox.Show(theirPrefMinAge);
+            MessageBox.Show(theirPrefMaxAge);
         }
     }
 }
