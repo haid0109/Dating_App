@@ -11,8 +11,36 @@
         <viewModels:FindMatchesViewModel x:Name="myFindMatchesViewModel" />
     </Window.DataContext>
     <Grid>
-        
-        
-        
+
+        <Button x:Name="btnDislike" 
+                Margin="100 250 0 0"
+                Height="30" 
+                Width="150" 
+                HorizontalAlignment="Left" 
+                Content="Dislike"
+                FontSize="20" 
+                Grid.Row="6" 
+                Click="btnDislike_Click"/>
+
+        <Button x:Name="btnLike" 
+                Margin="500 250 0 0"
+                Height="30" 
+                Width="150" 
+                HorizontalAlignment="Left" 
+                Content="Like"
+                FontSize="20" 
+                Grid.Row="6" 
+                Click="btnLike_Click"/>
+
+        <Button x:Name="btnLogOut" 
+                Margin="300 360 0 0"
+                Height="30" 
+                Width="150" 
+                HorizontalAlignment="Left" 
+                Content="Log Out"
+                FontSize="20" 
+                Grid.Row="6" 
+                Click="btnLogOut_Click"/>
+
     </Grid>
 </Window>
