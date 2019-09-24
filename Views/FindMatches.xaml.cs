@@ -48,7 +48,12 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 txtblNameAge.Text = NameAge();
                 txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
             }
-            catch (Exception) { MessageBox.Show("You have no more matches."); }
+            catch (Exception)
+            {
+                txtblNameAge.Text = null;
+                txtblShortDesc.Text = null;
+                MessageBox.Show("You have no more matches.");
+            }
         }
 
         private void btnLike_Click(object sender, RoutedEventArgs e)
@@ -60,7 +65,12 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 txtblNameAge.Text = NameAge();
                 txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
             }
-            catch (Exception) { MessageBox.Show("You have no more matches."); }
+            catch (Exception)
+            {
+                txtblNameAge.Text = null;
+                txtblShortDesc.Text = null;
+                MessageBox.Show("You have no more matches.");
+            }
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
@@ -72,12 +82,16 @@ namespace _2019_9_3_Dating_app_XAML_.Views
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            Settings settings = new Settings();
+            settings.Show();
+            this.Close();
         }
 
         private void btnViewMatches_Click(object sender, RoutedEventArgs e)
         {
-
+            ViewMatches viewMatches = new ViewMatches();
+            viewMatches.Show();
+            this.Close();
         }
     }
 }
