@@ -3,44 +3,110 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
-                xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
+        xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
         mc:Ignorable="d"
-        Title="FindMatches" Height="450" Width="800">
+        Title="FindMatches" Height="900" Width="500">
     <Window.DataContext>
         <viewModels:FindMatchesViewModel x:Name="myFindMatchesViewModel" />
     </Window.DataContext>
     <Grid>
 
-        <Button x:Name="btnDislike" 
-                Margin="100 250 0 0"
-                Height="30" 
-                Width="150" 
-                HorizontalAlignment="Left" 
-                Content="Dislike"
-                FontSize="20" 
-                Grid.Row="6" 
-                Click="btnDislike_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnLike" 
-                Margin="500 250 0 0"
-                Height="30" 
-                Width="150" 
-                HorizontalAlignment="Left" 
-                Content="Like"
-                FontSize="20" 
-                Grid.Row="6" 
-                Click="btnLike_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
 
-        <Button x:Name="btnLogOut" 
-                Margin="300 360 0 0"
-                Height="30" 
-                Width="150" 
-                HorizontalAlignment="Left" 
-                Content="Log Out"
-                FontSize="20" 
-                Grid.Row="6" 
-                Click="btnLogOut_Click"/>
+        <ComboBox x:Name="cmbBoxSettings"
+                  Height="35"
+                  Width="100"
+                  HorizontalAlignment="Right"
+                  IsReadOnly="True"
+                  IsEditable="True"
+                  FontSize="20"
+                  Text="Menu"
+                  Margin="0 0 0 0">
 
+            <ComboBoxItem>
+                <Button x:Name="btnViewMatches" 
+                        Margin="0 0 0 0"
+                        Height="35"
+                        Width="130"
+                        Content="View Matches"
+                        Click="btnViewMatches_Click"/>
+            </ComboBoxItem>
+            
+            <ComboBoxItem>
+                <Button x:Name="btnSettings" 
+                        Margin="0 0 0 0"
+                        Height="35"
+                        Width="130"
+                        Content="Settings"
+                        Click="btnSettings_Click"/>
+            </ComboBoxItem>
+
+            <ComboBoxItem>
+                <Button x:Name="btnLogOut" 
+                        Margin="0 0 0 0"
+                        Height="35"
+                        Width="130"
+                        Content="Log Out"
+                        Click="btnLogOut_Click"/>
+            </ComboBoxItem>
+
+        </ComboBox>
+
+        <DockPanel Grid.Row="1">
+
+
+
+        </DockPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="2">
+
+            <TextBlock x:Name="txtblNameAge"
+                       Text="" 
+                       FontSize="20" 
+                       TextWrapping="Wrap"
+                       Margin="20 0 0 0"/>
+
+            <TextBlock x:Name="txtblShortDesc"
+                       Text=""
+                       FontSize="15" 
+                       TextWrapping="Wrap"
+                       Margin="20 5 0 0"/>
+
+        </StackPanel>
+
+        <StackPanel  Grid.Row="3">
+
+            <Button x:Name="btnDislike" 
+                    Margin="-200 25 0 0"
+                    Height="30" 
+                    Width="150"
+                    HorizontalAlignment="Center"
+                    Content="Dislike"
+                    FontSize="20" 
+                    Grid.Row="6" 
+                    Click="btnDislike_Click"/>
+
+            <Button x:Name="btnLike" 
+                    Margin="200 -30 0 0"
+                    Height="30" 
+                    Width="150"
+                    HorizontalAlignment="Center"
+                    Content="Like"
+                    FontSize="20" 
+                    Grid.Row="6" 
+                    Click="btnLike_Click"/>
+
+        </StackPanel>
     </Grid>
 </Window>

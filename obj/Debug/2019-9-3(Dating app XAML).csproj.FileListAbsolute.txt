@@ -62,3 +62,4 @@ C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).exe
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).pdb
 C:\Users\haid\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).csprojAssemblyReference.cache
+C:\Users\haid\Documents\GitHub\Dating_App\bin\Debug\HamburgerMenu.dll

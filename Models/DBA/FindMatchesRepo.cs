@@ -53,7 +53,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             myPrefMaxAge = row[13].ToString();
         }
 
-        public void findThem(string email, int nextMatch)
+        public void findThem(string email)
         {
             findMe(email);
             SQLiteConnection Con = new SQLiteConnection(sqlCon);
@@ -77,7 +77,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             SQLiteDataAdapter SqlDA = new SQLiteDataAdapter(SqlCmd);
             DataTable DT = new DataTable();
             SqlDA.Fill(DT);
-            DataRow row = DT.Rows[nextMatch];
+            DataRow row = DT.Rows[0];
 
             theirProfileID = row[3].ToString();
             theirFirstname = row[4].ToString();
@@ -107,8 +107,8 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
                                                "VALUES('" + myProfileID + "', '" + theirProfileID + "', 0)", Con);
                 }
                 SqlCmd.ExecuteNonQuery();
-                Con.Close();
             }
+            Con.Close();
         }
     }
 }

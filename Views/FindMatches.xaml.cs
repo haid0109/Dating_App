@@ -20,22 +20,23 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class FindMatches : Window
     {
+        private string NameAge()
+        {
+            return myFindMatchesViewModel.findMatchesRepo.theirFirstname + " " +
+                   myFindMatchesViewModel.findMatchesRepo.theirLastname + ", " +
+                   myFindMatchesViewModel.findMatchesRepo.theirAge;
+        }
+
         public FindMatches()
         {
             InitializeComponent();
             try
             {
-                myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString(), 0);
-                MessageBox.Show(myFindMatchesViewModel.findMatchesRepo.theirFirstname + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirLastname + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirAge + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirShortDesc + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirProfileID);
+                myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());
+                txtblNameAge.Text = NameAge();
+                txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("You have no more matches.");
-            }
+            catch (Exception) { MessageBox.Show("You have no more matches."); }
         }
 
         private void btnDislike_Click(object sender, RoutedEventArgs e)
@@ -43,20 +44,11 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             try
             {
                 myFindMatchesViewModel.findMatchesRepo.likeDislike(false);
-                myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString(), 0);
-                MessageBox.Show(myFindMatchesViewModel.findMatchesRepo.theirFirstname + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirLastname + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirAge + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirShortDesc + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirProfileID);
+                myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());
+                txtblNameAge.Text = NameAge();
+                txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("You have no more matches.");
-                ViewMatches viewMatches = new ViewMatches();
-                viewMatches.Show();
-                this.Close();
-            }
+            catch (Exception) { MessageBox.Show("You have no more matches."); }
         }
 
         private void btnLike_Click(object sender, RoutedEventArgs e)
@@ -64,20 +56,11 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             try
             {
                 myFindMatchesViewModel.findMatchesRepo.likeDislike(true);
-                myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString(), 0);
-                MessageBox.Show(myFindMatchesViewModel.findMatchesRepo.theirFirstname + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirLastname + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirAge + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirShortDesc + "\n" +
-                                myFindMatchesViewModel.findMatchesRepo.theirProfileID);
+                myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());
+                txtblNameAge.Text = NameAge();
+                txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("You have no more matches.");
-                ViewMatches viewMatches = new ViewMatches();
-                viewMatches.Show();
-                this.Close();
-            }
+            catch (Exception) { MessageBox.Show("You have no more matches."); }
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
@@ -85,6 +68,16 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             Login login = new Login();
             login.Show();
             this.Close();
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnViewMatches_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
