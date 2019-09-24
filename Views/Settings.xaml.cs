@@ -23,5 +23,38 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         {
             InitializeComponent();
         }
+
+        private void txtBoxUpdateEmail_TextInput(object sender, TextCompositionEventArgs e) { }
+        private void txtBoxUpdatePassword_TextInput(object sender, TextCompositionEventArgs e){ }
+        private void txtBoxUpdateConfirmPass_TextInput(object sender, TextCompositionEventArgs e) { }
+        private void txtBoxUpdateShortDesc_TextInput(object sender, TextCompositionEventArgs e) { }
+        private void txtBoxUpdateGenderPref_TextInput(object sender, TextCompositionEventArgs e) { }
+        private void txtBoxUpdateMinAgePref_TextInput(object sender, TextCompositionEventArgs e) { }
+        private void txtBoxUpdateMaxAgePref_TextInput(object sender, TextCompositionEventArgs e) { }
+
+        private void cmbBoxUpdateGenderPref_TextInput(object sender, TextCompositionEventArgs e) { }
+        private void btnFindMatches_Click(object sender, RoutedEventArgs e)
+        {
+            FindMatches findMatches = new FindMatches();
+            findMatches.Show();
+            this.Close();
+        }
+        private void btnViewMatches_Click(object sender, RoutedEventArgs e)
+        {
+            ViewMatches viewMatches = new ViewMatches();
+            viewMatches.Show();
+            this.Close();
+        }
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

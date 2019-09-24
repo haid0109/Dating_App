@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         mc:Ignorable="d"
-        Title="CreateProfile" Height="450" Width="490">
+        Title="CreateProfile" Height="580" Width="490">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -18,12 +18,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Label Content="Create Profile"
                Grid.Row="0"
+               HorizontalAlignment="Center"
                FontSize="35"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
@@ -140,14 +142,26 @@
             <Label x:Name="lblCreateShortDescProf"
                    Content="Short Description" 
                    FontSize="20" 
-                   Margin="0 10 0 0"/>
+                   Margin="0 0 0 0"/>
 
             <TextBox x:Name="txtBoxCreateShortDescProf"
                      ContentElement.TextInput="TxtBoxCreateShortDescProf_TextInput"
-                     Height="40" 
+                     Height="90" 
                      Width="250" 
+                     TextWrapping="Wrap"
                      Margin="60 0 0 0" 
                      BorderThickness="2" />
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="6">
+
+            <Label x:Name="lblCreateProfilePicture"
+                   Content="Profile Picture" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+            
+            
 
         </StackPanel>
 
@@ -158,7 +172,7 @@
                 HorizontalAlignment="Left" 
                 Content="Go Back"
                 FontSize="20" 
-                Grid.Row="6" 
+                Grid.Row="7" 
                 Click="BtnGoBack_Click"/>
 
         <Button x:Name="btnCreateProfile" 
@@ -168,7 +182,7 @@
                 HorizontalAlignment="Left" 
                 Content="Next"
                 FontSize="20" 
-                Grid.Row="6" 
+                Grid.Row="7" 
                 Click="BtnCreateProfile_Click"/>
 
     </Grid>

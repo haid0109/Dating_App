@@ -23,7 +23,12 @@
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="cmbBoxSettings"
+        <Label Content="Find Matches" 
+               Grid.Row="0"
+               HorizontalAlignment="Center"
+               FontSize="35" />
+
+        <ComboBox x:Name="cmbBoxMenu"
                   Height="35"
                   Width="100"
                   HorizontalAlignment="Right"

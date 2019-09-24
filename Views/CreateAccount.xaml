@@ -22,6 +22,7 @@
 
         <Label Content="Create Account" 
                Grid.Row="0" 
+               HorizontalAlignment="Center"
                FontSize="35" />
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">

@@ -25,6 +25,7 @@
 
         <Label Content="Preferences"
                Grid.Row="0"
+               HorizontalAlignment="Center"
                FontSize="35"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
@@ -38,8 +39,7 @@
                      ContentElement.TextInput="CmbBoxCreateGenderPref_TextInput"
                      Height="30" 
                      Width="120" 
-                     Margin="135 0 0 0" 
-                     BorderThickness="2">
+                     Margin="135 0 0 0">
 
                 <ComboBoxItem>Male</ComboBoxItem>
                 <ComboBoxItem>Female</ComboBoxItem>

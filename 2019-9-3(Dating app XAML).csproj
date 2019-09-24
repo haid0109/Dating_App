@@ -62,11 +62,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\DBA\FindMatchesRepo.cs" />
+    <Compile Include="Models\DBA\SettingsRepo.cs" />
     <Compile Include="Models\DBA\ViewMatchesRepo.cs" />
     <Compile Include="SELECT\SHOW.xaml.cs">
       <DependentUpon>SHOW.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\FindMatchesViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ViewMatchesViewModel.cs" />
     <Compile Include="Views\FindMatches.xaml.cs">
       <DependentUpon>FindMatches.xaml</DependentUpon>

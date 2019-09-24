@@ -24,8 +24,9 @@
         </Grid.RowDefinitions>
 
         <Label Content="Dating App Name" 
-               Grid.Row="0" 
-               FontSize="40" />
+               Grid.Row="0"
+               HorizontalAlignment="Center"
+               FontSize="35" />
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">
 

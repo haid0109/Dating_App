@@ -4,9 +4,202 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
+        xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800">
+        Title="Settings" Height="700" Width="480">
+    <Window.DataContext>
+        <viewModels:SettingsViewModel x:Name="mySettingsViewModel" />
+    </Window.DataContext>
     <Grid>
         
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="117"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="210"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Settings"
+               Grid.Row="0"
+               HorizontalAlignment="Center"
+               FontSize="35"/>
+
+        <ComboBox x:Name="cmbBoxMenu"
+                  Height="35"
+                  Width="100"
+                  Grid.Row="0"
+                  HorizontalAlignment="Right"
+                  IsReadOnly="True"
+                  IsEditable="True"
+                  FontSize="20"
+                  Text="Menu"
+                  Margin="0 0 0 0">
+
+            <ComboBoxItem>
+                <Button x:Name="btnFindMatches" 
+                        Margin="0 0 0 0"
+                        Height="35"
+                        Width="130"
+                        Content="Find Matches"
+                        Click="btnFindMatches_Click"/>
+            </ComboBoxItem>
+
+            <ComboBoxItem>
+                <Button x:Name="btnViewMatches" 
+                        Margin="0 0 0 0"
+                        Height="35"
+                        Width="130"
+                        Content="View Matches"
+                        Click="btnViewMatches_Click"/>
+            </ComboBoxItem>
+
+            <ComboBoxItem>
+                <Button x:Name="btnLogOut" 
+                        Margin="0 0 0 0"
+                        Height="35"
+                        Width="130"
+                        Content="Log Out"
+                        Click="btnLogOut_Click"/>
+            </ComboBoxItem>
+
+        </ComboBox>
+
+        <Label Content="Account"
+               Grid.Row="1"
+               FontSize="27"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="2">
+
+            <Label x:Name="lblUpdateEmail"
+                   Content="Email" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+
+            <TextBox x:Name="txtBoxUpdateEmail"
+                     ContentElement.TextInput="txtBoxUpdateEmail_TextInput"
+                     Height="30"
+                     Width="250" 
+                     Margin="195 -30 0 0" 
+                     BorderThickness="2" />
+
+            <Label x:Name="lblUpdatePassword"
+                   Content="Password" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+
+            <TextBox x:Name="txtBoxUpdatePassword"
+                     ContentElement.TextInput="txtBoxUpdatePassword_TextInput"
+                     Height="30"
+                     Width="250" 
+                     Margin="195 -30 0 0" 
+                     BorderThickness="2" />
+
+            <Label x:Name="lblUpdateConfirmPass"
+                   Content="Confirm password" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+
+            <TextBox x:Name="txtBoxUpdateConfirmPass"
+                     ContentElement.TextInput="txtBoxUpdateConfirmPass_TextInput"
+                     Height="30"
+                     Width="250" 
+                     Margin="195 -30 0 0" 
+                     BorderThickness="2" />
+
+        </StackPanel>
+
+        <Label Content="Profile"
+               Grid.Row="3"
+               FontSize="27"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="4">
+
+            <Label x:Name="lblUpdateShortDesc"
+                   Content="Short Description" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+
+            <TextBox x:Name="txtBoxUpdateShortDesc"
+                     ContentElement.TextInput="txtBoxUpdateShortDesc_TextInput"
+                     Height="90"
+                     Width="250"
+                     TextWrapping="Wrap"
+                     Margin="195 -30 0 0" 
+                     BorderThickness="2" />
+
+            <Label x:Name="lblUpdateProfilePicture"
+                   Content="Profile Picture" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+
+        </StackPanel>
+
+        <Label Content="Preferences"
+               Grid.Row="5"
+               FontSize="27"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="6">
+
+            <Label x:Name="lblUpdateGenderPref"
+                   Content="Gender" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+
+            <ComboBox x:Name="cmbBoxUpdateGenderPref"
+                     ContentElement.TextInput="cmbBoxUpdateGenderPref_TextInput"
+                     Height="30" 
+                     Width="250" 
+                     Margin="195 -35 0 0">
+
+                <ComboBoxItem>Male</ComboBoxItem>
+                <ComboBoxItem>Female</ComboBoxItem>
+                <ComboBoxItem>Other</ComboBoxItem>
+
+            </ComboBox>
+
+            <Label x:Name="lblUpdateAgePref"
+                   Content="Age Preference" 
+                   FontSize="20" 
+                   Margin="0 0 0 0"/>
+
+            <TextBox x:Name="txtBoxUpdateMinAgePref"
+                     ContentElement.TextInput="txtBoxUpdateMinAgePref_TextInput"
+                     Height="30" 
+                     Width="110" 
+                     Margin="55 -30 0 0" 
+                     BorderThickness="2"/>
+
+            <Label x:Name="lblDash"
+                   Content="-" 
+                   FontSize="25" 
+                   Margin="322 -40 0 0"/>
+
+            <TextBox x:Name="txtBoxUpdateMaxAgePref"
+                     ContentElement.TextInput="txtBoxUpdateMaxAgePref_TextInput"
+                     Height="30" 
+                     Width="110" 
+                     Margin="335 -35 0 0" 
+                     BorderThickness="2"/>
+
+        </StackPanel>
+        
+        <Button x:Name="btnSaveChanges" 
+                    Margin="0 0 0 0"
+                    Height="30" 
+                    Width="150"
+                    HorizontalAlignment="Center"
+                    Content="Save Changes"
+                    FontSize="20" 
+                    Grid.Row="7" 
+                    Click="btnSaveChanges_Click"/>
+
     </Grid>
 </Window>
