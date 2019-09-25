@@ -41,7 +41,7 @@ namespace _2019_9_3_Dating_app_XAML_.SELECT
             "INNER JOIN Profiles ON Users.userID = Profiles.userID " +
             "INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
             "INNER JOIN Ages ON Profiles.profileID = Ages.profileID " +
-            "LEFT JOIN Liked ON Liked.profileID = 1 " +
+            "LEFT JOIN Liked ON Liked.profileID = 17 " +
             "AND Profiles.profileID = Liked.shownProfileID " +
             "WHERE Profiles.gender = 'M' " +
             "AND Ages.age >= 18 " +
@@ -49,7 +49,7 @@ namespace _2019_9_3_Dating_app_XAML_.SELECT
             "AND Preferences.gender = 'F' " +
             "AND Preferences.minAge <= 18 " +
             "AND Preferences.maxAge >= 18 " +
-            "AND Liked.shownProfileID = 17 ", Con);
+            "AND Liked.profileID IS NULL ", Con);
 
             DataTable DT = new DataTable();
             SqlDA.Fill(DT);
