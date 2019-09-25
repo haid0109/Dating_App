@@ -13,7 +13,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
     {
         private string userID;
         private string profileID;
-        private string preferencesID;
+        private string preferenceID;
 
         public void getUserInfo(string email)
         {
@@ -34,7 +34,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 
             userID = row[0].ToString();
             profileID = row[3].ToString();
-            preferencesID = row[10].ToString();
+            preferenceID = row[10].ToString();
         }
 
         public void updateEmail(string email)
@@ -93,7 +93,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
                 Con.Open();
                 SQLiteCommand SqlCmd = new SQLiteCommand("UPDATE preferences " +
                                                          "SET gender = '" + genderPref + "'" +
-                                                         "WHERE preferenceID = '" + preferencesID + "'", Con);
+                                                         "WHERE preferenceID = '" + preferenceID + "'", Con);
 
                 SqlCmd.ExecuteNonQuery();
                 Con.Close();
@@ -108,7 +108,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
                 Con.Open();
                 SQLiteCommand SqlCmd = new SQLiteCommand("UPDATE preferences " +
                                                          "SET minAge = '" + minAgePref + "'" +
-                                                         "WHERE preferenceID = '" + preferencesID + "'", Con);
+                                                         "WHERE preferenceID = '" + preferenceID + "'", Con);
 
                 SqlCmd.ExecuteNonQuery();
                 Con.Close();
@@ -123,11 +123,41 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
                 Con.Open();
                 SQLiteCommand SqlCmd = new SQLiteCommand("UPDATE preferences " +
                                                          "SET maxAge = '" + maxAgePref + "'" +
-                                                         "WHERE preferenceID = '" + preferencesID + "'", Con);
+                                                         "WHERE preferenceID = '" + preferenceID + "'", Con);
 
                 SqlCmd.ExecuteNonQuery();
                 Con.Close();
             }
+        }
+
+        public void deleteAccount()
+        {
+            SQLiteConnection Con = new SQLiteConnection(sqlCon);
+            Con.Open();
+
+            SQLiteCommand SqlCmd = new SQLiteCommand("DELETE FROM Liked " +
+                                                     "WHERE profileID = '" + profileID + "' " +
+                                                     "OR shownProfileID = '" + profileID + "' ", Con);
+            SqlCmd.ExecuteNonQuery();
+
+            SqlCmd = new SQLiteCommand("DELETE FROM Messages " +
+                                       "WHERE senderID = '" + profileID + "' " +
+                                       "OR receiverID = '" + profileID + "' ", Con);
+            SqlCmd.ExecuteNonQuery();
+
+            SqlCmd = new SQLiteCommand("DELETE FROM Preferences " +
+                                       "WHERE preferenceID = '" + preferenceID + "' ", Con);
+            SqlCmd.ExecuteNonQuery();
+
+            SqlCmd = new SQLiteCommand("DELETE FROM Profiles " +
+                                       "WHERE profileID = '" + profileID + "' ", Con);
+            SqlCmd.ExecuteNonQuery();
+
+            SqlCmd = new SQLiteCommand("DELETE FROM Users " +
+                                       "WHERE userID = '" + userID + "' ", Con);
+            SqlCmd.ExecuteNonQuery();
+
+            Con.Close();
         }
     }
 }

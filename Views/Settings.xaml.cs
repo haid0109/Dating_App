@@ -19,10 +19,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class Settings : Window
     {
-        public Settings()
-        {
-            InitializeComponent();
-        }
+        public Settings() { InitializeComponent(); }
 
         private void txtBoxUpdateEmail_TextInput(object sender, TextCompositionEventArgs e) { }
         private void txtBoxUpdatePassword_TextInput(object sender, TextCompositionEventArgs e){ }
@@ -82,6 +79,27 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                     mySettingsViewModel.settingsRepo.updateMaxAgePref(txtBoxUpdateMaxAgePref.Text);
 
                     MessageBox.Show("Your changes have been saved.");
+                    Login login = new Login();
+                    login.Show();
+                    this.Close();
+                }
+                catch (Exception) { MessageBox.Show("Error: something went wrong"); }
+            }
+            else { return; }
+        }
+        private void btnDeleteAccount_Click(object sender, RoutedEventArgs e)
+        {
+            ConfimWithLogin confirmWithLogin = new ConfimWithLogin();
+            confirmWithLogin.ShowDialog();
+
+            if (App.Current.Resources["confirmWithLoginBool"].ToString() == "True")
+            {
+                try
+                {
+                    mySettingsViewModel.settingsRepo.getUserInfo(App.Current.Resources["loginEmail"].ToString());
+                    mySettingsViewModel.settingsRepo.deleteAccount();
+
+                    MessageBox.Show("Your account has been deleted.");
                     Login login = new Login();
                     login.Show();
                     this.Close();

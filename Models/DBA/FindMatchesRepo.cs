@@ -52,7 +52,6 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             myPrefMinAge = row[12].ToString();
             myPrefMaxAge = row[13].ToString();
         }
-
         public void findThem(string email)
         {
             findMe(email);
@@ -64,7 +63,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             "INNER JOIN Profiles ON Users.userID = Profiles.userID " +
             "INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
             "INNER JOIN Ages ON Profiles.profileID = Ages.profileID " +
-            "LEFT JOIN Liked ON Liked.profileID = 1 " +
+            "LEFT JOIN Liked ON Liked.profileID = " + myProfileID + " " +
             "AND Profiles.profileID = Liked.shownProfileID " +
             "WHERE Profiles.gender = '" + myPrefGender + "' " +
             "AND Ages.age >= " + myPrefMinAge + " " +
@@ -87,7 +86,6 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 
             Con.Close();
         }
-
         public void likeDislike(bool like_dislike)
         {
             SQLiteConnection Con = new SQLiteConnection(sqlCon);

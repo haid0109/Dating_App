@@ -32,39 +32,28 @@ namespace _2019_9_3_Dating_app_XAML_.SELECT
         {
             //MessageBox.Show(anumber.ToString());
             //anumber++;
-            //SQLiteConnection Con = new SQLiteConnection(@"Data Source=..\..\Database\dating_app.db;Version=3");
-            //Con.Open();
-            //SQLiteDataAdapter SqlDA = new SQLiteDataAdapter(
-            //"SELECT * FROM Users " +
-            //"INNER JOIN Profiles ON Users.userID = Profiles.userID " +
-            //"INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
-            //"INNER JOIN Ages ON Profiles.profileID = Ages.profileID " +
-            //"LEFT JOIN Liked ON Liked.profileID = 1 " +
-            //"AND Profiles.profileID = Liked.shownProfileID " +
-            //"WHERE Profiles.gender = 'F' " +
-            //"AND Ages.age >= 18 " +
-            //"AND Ages.age <= 20 " +
-            //"AND Preferences.gender = 'M' " +
-            //"AND Preferences.minAge <= 18 " +
-            //"AND Preferences.maxAge >= 18 " +
-            //"AND Liked.profileID IS NULL ", Con);
-            //DataTable DT = new DataTable();
-            //SqlDA.Fill(DT);
-            //DataRow row;
-            //if(DT.Rows[0] == null)
-            //{
-            //    MessageBox.Show("den er null");
-            //}
-            //dataGrid.ItemsSource = DT.DefaultView;
-            //Con.Close();
 
             SQLiteConnection Con = new SQLiteConnection(@"Data Source=..\..\Database\dating_app.db;Version=3");
             Con.Open();
-            SQLiteCommand SqlCmd = new SQLiteCommand("UPDATE Users, Profiles " +
-                                                     "SET shortDesc = 'ddd'" +
-                                                     "WHERE email = '1'", Con);
 
-            SqlCmd.ExecuteNonQuery();
+            SQLiteDataAdapter SqlDA = new SQLiteDataAdapter(
+            "SELECT * FROM Users " +
+            "INNER JOIN Profiles ON Users.userID = Profiles.userID " +
+            "INNER JOIN Preferences ON Profiles.profileID = Preferences.profileID " +
+            "INNER JOIN Ages ON Profiles.profileID = Ages.profileID " +
+            "LEFT JOIN Liked ON Liked.profileID = 1 " +
+            "AND Profiles.profileID = Liked.shownProfileID " +
+            "WHERE Profiles.gender = 'M' " +
+            "AND Ages.age >= 18 " +
+            "AND Ages.age <= 20 " +
+            "AND Preferences.gender = 'F' " +
+            "AND Preferences.minAge <= 18 " +
+            "AND Preferences.maxAge >= 18 " +
+            "AND Liked.shownProfileID = 17 ", Con);
+
+            DataTable DT = new DataTable();
+            SqlDA.Fill(DT);
+            dataGrid.ItemsSource = DT.DefaultView;
             Con.Close();
         }
     }

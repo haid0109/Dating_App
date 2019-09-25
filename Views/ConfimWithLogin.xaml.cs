@@ -19,7 +19,11 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class ConfimWithLogin : Window
     {
-        public ConfimWithLogin() { InitializeComponent(); }
+        public ConfimWithLogin()
+        {
+            InitializeComponent();
+            App.Current.Resources["confirmWithLoginBool"] = false;
+        }
         private void txtBoxEmail_TextInput(object sender, TextCompositionEventArgs e) { }
         private void passBoxPassword_TextInput(object sender, TextCompositionEventArgs e) { }
 
