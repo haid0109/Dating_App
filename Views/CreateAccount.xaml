@@ -53,8 +53,7 @@
                          Height="30" 
                          Width="250" 
                          Margin="95 0 0 0" 
-                         BorderThickness="2"
-                         PasswordChar="*" />
+                         BorderThickness="2"/>
             
         </StackPanel>
 
@@ -70,8 +69,7 @@
                          Height="30" 
                          Width="250" 
                          Margin="19 0 0 0" 
-                         BorderThickness="2"
-                         PasswordChar="*" />
+                         BorderThickness="2"/>
             
         </StackPanel>
 

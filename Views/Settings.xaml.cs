@@ -54,7 +54,41 @@ namespace _2019_9_3_Dating_app_XAML_.Views
 
         private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
+            string genderPref = "";
+            if (cmbBoxUpdateGenderPref.Text == "Male") { genderPref = "M"; }
+            else if (cmbBoxUpdateGenderPref.Text == "Female") { genderPref = "F"; }
+            else if (cmbBoxUpdateGenderPref.Text == "Other") { genderPref = "O"; }
 
+            if(txtBoxUpdatePassword.Password != txtBoxUpdateConfirmPass.Password)
+            {
+                MessageBox.Show("Your password doesn't match.");
+                return;
+            }
+
+            ConfimWithLogin confirmWithLogin = new ConfimWithLogin();
+            confirmWithLogin.ShowDialog();
+
+            if (App.Current.Resources["confirmWithLoginBool"].ToString() == "True")
+            {
+                try
+                {
+                    mySettingsViewModel.settingsRepo.getUserInfo(App.Current.Resources["loginEmail"].ToString());
+
+                    mySettingsViewModel.settingsRepo.updateEmail(txtBoxUpdateEmail.Text);
+                    mySettingsViewModel.settingsRepo.updatePassword(txtBoxUpdatePassword.Password);
+                    mySettingsViewModel.settingsRepo.updateShortDesc(txtBoxUpdateShortDesc.Text);
+                    mySettingsViewModel.settingsRepo.updateGenderPref(genderPref);
+                    mySettingsViewModel.settingsRepo.updateMinAgePref(txtBoxUpdateMinAgePref.Text);
+                    mySettingsViewModel.settingsRepo.updateMaxAgePref(txtBoxUpdateMaxAgePref.Text);
+
+                    MessageBox.Show("Your changes have been saved.");
+                    Login login = new Login();
+                    login.Show();
+                    this.Close();
+                }
+                catch (Exception exc) { MessageBox.Show(exc.Message); }
+            }
+            else { return; }
         }
     }
 }

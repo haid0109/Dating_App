@@ -70,6 +70,9 @@
     <Compile Include="ViewModels\FindMatchesViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ViewMatchesViewModel.cs" />
+    <Compile Include="Views\ConfimWithLogin.xaml.cs">
+      <DependentUpon>ConfimWithLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FindMatches.xaml.cs">
       <DependentUpon>FindMatches.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
       <DependentUpon>ViewMatches.xaml</DependentUpon>
     </Compile>
     <Page Include="SELECT\SHOW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConfimWithLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

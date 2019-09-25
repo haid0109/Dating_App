@@ -95,24 +95,24 @@
                    FontSize="20" 
                    Margin="0 0 0 0"/>
 
-            <TextBox x:Name="txtBoxUpdatePassword"
-                     ContentElement.TextInput="txtBoxUpdatePassword_TextInput"
-                     Height="30"
-                     Width="250" 
-                     Margin="195 -30 0 0" 
-                     BorderThickness="2" />
+            <PasswordBox x:Name="txtBoxUpdatePassword"
+                         ContentElement.TextInput="txtBoxUpdatePassword_TextInput"
+                         Height="30"
+                         Width="250" 
+                         Margin="195 -30 0 0" 
+                         BorderThickness="2" />
 
             <Label x:Name="lblUpdateConfirmPass"
                    Content="Confirm password" 
                    FontSize="20" 
                    Margin="0 0 0 0"/>
 
-            <TextBox x:Name="txtBoxUpdateConfirmPass"
-                     ContentElement.TextInput="txtBoxUpdateConfirmPass_TextInput"
-                     Height="30"
-                     Width="250" 
-                     Margin="195 -30 0 0" 
-                     BorderThickness="2" />
+            <PasswordBox x:Name="txtBoxUpdateConfirmPass"
+                         ContentElement.TextInput="txtBoxUpdateConfirmPass_TextInput"
+                         Height="30"
+                         Width="250" 
+                         Margin="195 -30 0 0" 
+                         BorderThickness="2" />
 
         </StackPanel>
 

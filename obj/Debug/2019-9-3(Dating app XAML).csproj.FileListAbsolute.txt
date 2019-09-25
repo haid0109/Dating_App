@@ -61,6 +61,8 @@ C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).csproj.CopyComplete
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).exe
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).pdb
-C:\Users\haid\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).csprojAssemblyReference.cache
 C:\Users\haid\Documents\GitHub\Dating_App\obj\Debug\Views\Settings.g.cs
 C:\Users\haid\Documents\GitHub\Dating_App\obj\Debug\Views\Settings.baml
+C:\Users\haid\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).csprojAssemblyReference.cache
+C:\Users\haid\Documents\GitHub\Dating_App\obj\Debug\Views\ConfimWithLogin.g.cs
+C:\Users\haid\Documents\GitHub\Dating_App\obj\Debug\Views\ConfimWithLogin.baml
