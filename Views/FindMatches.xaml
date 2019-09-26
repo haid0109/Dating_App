@@ -23,49 +23,52 @@
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Find Matches" 
-               Grid.Row="0"
-               HorizontalAlignment="Center"
-               FontSize="35" />
-
-        <ComboBox x:Name="cmbBoxMenu"
-                  Height="35"
-                  Width="100"
-                  HorizontalAlignment="Right"
-                  IsReadOnly="True"
-                  IsEditable="True"
-                  FontSize="20"
-                  Text="Menu"
-                  Margin="0 0 0 0">
-
-            <ComboBoxItem>
-                <Button x:Name="btnViewMatches" 
-                        Margin="0 0 0 0"
-                        Height="35"
-                        Width="130"
-                        Content="View Matches"
-                        Click="btnViewMatches_Click"/>
-            </ComboBoxItem>
+        <StackPanel Grid.Row="0">
             
-            <ComboBoxItem>
-                <Button x:Name="btnSettings" 
-                        Margin="0 0 0 0"
-                        Height="35"
-                        Width="130"
-                        Content="Settings"
-                        Click="btnSettings_Click"/>
-            </ComboBoxItem>
+            <Label Content="Find Matches"
+                   HorizontalAlignment="Center"
+                   FontSize="35" />
 
-            <ComboBoxItem>
-                <Button x:Name="btnLogOut" 
-                        Margin="0 0 0 0"
-                        Height="35"
-                        Width="130"
-                        Content="Log Out"
-                        Click="btnLogOut_Click"/>
-            </ComboBoxItem>
+            <ComboBox x:Name="cmbBoxMenu"
+                      Height="35"
+                      Width="100"
+                      HorizontalAlignment="Right"
+                      IsReadOnly="True"
+                      IsEditable="True"
+                      FontSize="20"
+                      Text="Menu"
+                      Margin="0 -50 0 0">
 
-        </ComboBox>
+                <ComboBoxItem>
+                    <Button x:Name="btnViewMatches" 
+                            Margin="0 0 0 0"
+                            Height="35"
+                            Width="130"
+                            Content="View Matches"
+                            Click="btnViewMatches_Click"/>
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    <Button x:Name="btnSettings" 
+                            Margin="0 0 0 0"
+                            Height="35"
+                            Width="130"
+                            Content="Settings"
+                            Click="btnSettings_Click"/>
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    <Button x:Name="btnLogOut" 
+                            Margin="0 0 0 0"
+                            Height="35"
+                            Width="130"
+                            Content="Log Out"
+                            Click="btnLogOut_Click"/>
+                </ComboBoxItem>
+
+            </ComboBox>
+
+        </StackPanel>
 
         <DockPanel Grid.Row="1">
 

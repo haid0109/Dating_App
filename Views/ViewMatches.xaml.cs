@@ -26,11 +26,37 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             myViewMatchesViewModel.viewMatchesRepo.getMatchesInfo(App.Current.Resources["loginEmail"].ToString());
             lsbMatches.ItemsSource = myViewMatchesViewModel.viewMatchesRepo.theirFullNames;
         }
+        private void txtBoxSendMessage_TextInput(object sender, TextCompositionEventArgs e) { }
+        private void btnFindMatches_Click(object sender, RoutedEventArgs e)
+        {
+            FindMatches findMatches = new FindMatches();
+            findMatches.Show();
+            this.Close();
+        }
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+            this.Close();
+        }
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+        private void btnSendMessage_Click(object sender, RoutedEventArgs e)
+        {
+            int matchIndex = lsbMatches.SelectedIndex;
+            myViewMatchesViewModel.viewMatchesRepo.sendMessage(matchIndex, txtBoxSendMessage.Text);
+            myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
+            txtBoxSendMessage.Clear();
+        }
 
         private void lsbMatches_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int person = lsbMatches.SelectedIndex;
-            MessageBox.Show(person.ToString());
+            int matchIndex = lsbMatches.SelectedIndex;
+            myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
         }
     }
 }

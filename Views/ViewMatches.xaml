@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
         mc:Ignorable="d"
-        Title="ViewMatches" Height="450" Width="800">
+        Title="ViewMatches" Height="500" Width="900">
     <Window.DataContext>
         <viewModels:ViewMatchesViewModel x:Name="myViewMatchesViewModel" />
     </Window.DataContext>
@@ -18,23 +18,96 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2">
+
+            <Label Content="Find Matches"
+                   HorizontalAlignment="Center"
+                   FontSize="35" />
+
+            <ComboBox x:Name="cmbBoxMenu"
+                      Height="35"
+                      Width="100"
+                      HorizontalAlignment="Right"
+                      IsReadOnly="True"
+                      IsEditable="True"
+                      FontSize="20"
+                      Text="Menu"
+                      Margin="0 -50 0 0">
+
+                <ComboBoxItem>
+                    <Button x:Name="btnFindMatches" 
+                            Margin="0 0 0 0"
+                            Height="35"
+                            Width="130"
+                            Content="Find Matches"
+                            Click="btnFindMatches_Click"/>
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    <Button x:Name="btnSettings" 
+                            Margin="0 0 0 0"
+                            Height="35"
+                            Width="130"
+                            Content="Settings"
+                            Click="btnSettings_Click"/>
+                </ComboBoxItem>
+
+                <ComboBoxItem>
+                    <Button x:Name="btnLogOut" 
+                            Margin="0 0 0 0"
+                            Height="35"
+                            Width="130"
+                            Content="Log Out"
+                            Click="btnLogOut_Click"/>
+                </ComboBoxItem>
+
+            </ComboBox>
+
+        </StackPanel>
 
         <StackPanel 
             Orientation="Horizontal" 
+            Grid.Row="1"
             Grid.RowSpan="2" 
             Grid.Column="0"
             Width="auto"
             Height="auto">
             <ListBox x:Name="lsbMatches"
-                 Grid.Column="0"
-                 Grid.RowSpan="2"
                  Width="225"
                  Height="auto"
                  Background="LightGray" SelectionChanged="lsbMatches_SelectionChanged">
             </ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            
+            
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left">
+
+            <TextBox x:Name="txtBoxSendMessage"
+                     ContentElement.TextInput="txtBoxSendMessage_TextInput"
+                     Height="35"
+                     Width="550"
+                     TextWrapping="Wrap"
+                     Margin="5 5 0 0" 
+                     BorderThickness="2"/>
+
+            <Button x:Name="btnSendMessage" 
+                    Margin="10 5 0 0"
+                    Height="35" 
+                    Width="100"
+                    Content="Send"
+                    FontSize="23"
+                    Click="btnSendMessage_Click"/>
+
         </StackPanel>
         
     </Grid>

@@ -72,8 +72,25 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
                 SqlDA.Fill(DT);
                 DataRow row = DT.Rows[0];
                 theirFullNames.Add(row[1].ToString() + " " + row[2].ToString());
+                Con.Close();
             }
         }
-        
+        public void getMessages(int matchIndex)
+        {
+
+        }
+        public void sendMessage(int matchIndex, string message)
+        {
+            SQLiteConnection Con = new SQLiteConnection(sqlCon);
+            Con.Open();
+
+            SQLiteCommand SqlCmd = new SQLiteCommand(
+            "INSERT INTO Messages ([senderID], [receiverID], [message]) " +
+            "VALUES (" + myProfileID + ", " + matchesProfileIDs[matchIndex] + ", '" + message + "') ", Con);
+
+            SqlCmd.ExecuteNonQuery();
+            Con.Close();
+            getMessages(matchIndex);
+        }
     }
 }

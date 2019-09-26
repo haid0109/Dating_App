@@ -41,6 +41,26 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             catch (Exception) { MessageBox.Show("You have no more matches."); }
         }
 
+        private void btnViewMatches_Click(object sender, RoutedEventArgs e)
+        {
+            ViewMatches viewMatches = new ViewMatches();
+            viewMatches.Show();
+            this.Close();
+        }
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+            this.Close();
+        }
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+
         private void btnDislike_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -73,27 +93,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 txtblShortDesc.Text = null;
                 MessageBox.Show("You have no more matches.");
             }
-        }
-
-        private void btnLogOut_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Close();
-        }
-
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
-        {
-            Settings settings = new Settings();
-            settings.Show();
-            this.Close();
-        }
-
-        private void btnViewMatches_Click(object sender, RoutedEventArgs e)
-        {
-            ViewMatches viewMatches = new ViewMatches();
-            viewMatches.Show();
-            this.Close();
         }
     }
 }
