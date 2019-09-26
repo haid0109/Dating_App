@@ -19,7 +19,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class CreatePreference : Window
     {
-        public CreatePreference() { InitializeComponent(); }
+        public CreatePreference() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; }
         private void TxtBoxCreateGenderPref_TextInput(object sender, TextCompositionEventArgs e) { }
         private void TxtBoxCreateMinAgePref_TextInput(object sender, TextCompositionEventArgs e) { }
         private void TxtBoxCreateMaxAgePref_TextInput(object sender, TextCompositionEventArgs e) { }
@@ -31,7 +31,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             createProfile.Show();
             this.Close();
         }
-
         private void BtnCreatePreferences_Click(object sender, RoutedEventArgs e)
         {
             string genderPref = "";

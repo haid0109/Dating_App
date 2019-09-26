@@ -19,7 +19,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class Settings : Window
     {
-        public Settings() { InitializeComponent(); }
+        public Settings() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; }
 
         private void txtBoxUpdateEmail_TextInput(object sender, TextCompositionEventArgs e) { }
         private void txtBoxUpdatePassword_TextInput(object sender, TextCompositionEventArgs e){ }

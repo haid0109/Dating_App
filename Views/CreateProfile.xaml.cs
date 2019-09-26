@@ -19,7 +19,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class CreateProfile : Window
     {
-        public CreateProfile() { InitializeComponent(); }
+        public CreateProfile() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; }
         private void TxtBoxCreateBirthdayDay_TextChanged(object sender, TextChangedEventArgs e) { }
         private void TxtBoxCreateFirstNameProf_TextInput(object sender, TextCompositionEventArgs e) { }
         private void TxtBoxCreateLastNameProf_TextInput(object sender, TextCompositionEventArgs e) { }
@@ -36,7 +36,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             createAccount.Show();
             this.Close();
         }
-
         private void BtnCreateProfile_Click(object sender, RoutedEventArgs e)
         {
             string genderProf = "";

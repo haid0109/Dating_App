@@ -19,9 +19,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class ViewMatches : Window
     {
-        public ViewMatches()
-        {
-            InitializeComponent();
-        }
+        public ViewMatches() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; }
     }
 }

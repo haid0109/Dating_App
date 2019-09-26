@@ -22,6 +22,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         public ConfimWithLogin()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             App.Current.Resources["confirmWithLoginBool"] = false;
         }
         private void txtBoxEmail_TextInput(object sender, TextCompositionEventArgs e) { }

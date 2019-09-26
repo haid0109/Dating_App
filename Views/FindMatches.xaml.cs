@@ -30,6 +30,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         public FindMatches()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
             try
             {
                 myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());

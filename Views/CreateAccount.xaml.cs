@@ -19,7 +19,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class CreateAccount : Window
     {
-        public CreateAccount() { InitializeComponent(); }
+        public CreateAccount() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; }
         public void TextBox_TextInputCreateEmail(object sender, TextCompositionEventArgs e) { }
         private void TextBox_TextInputCreatePassword(object sender, TextCompositionEventArgs e) { }
         private void TextBox_TextInputConfirmPass(object sender, TextCompositionEventArgs e) { }
@@ -30,7 +30,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             login.Show();
             this.Close();
         }
-
         private void BtnCreateAccount_Click(object sender, RoutedEventArgs e)
         {
             try
