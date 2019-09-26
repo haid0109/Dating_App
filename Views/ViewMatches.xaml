@@ -90,14 +90,14 @@
             
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
 
             <TextBox x:Name="txtBoxSendMessage"
                      ContentElement.TextInput="txtBoxSendMessage_TextInput"
                      Height="35"
-                     Width="550"
+                     Width="540"
                      TextWrapping="Wrap"
-                     Margin="5 5 0 0" 
+                     Margin="0 5 0 0" 
                      BorderThickness="2"/>
 
             <Button x:Name="btnSendMessage" 
