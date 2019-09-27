@@ -37,9 +37,12 @@ namespace _2019_9_3_Dating_app_XAML_.SELECT
             Con.Open();
 
             SQLiteDataAdapter SqlDA = new SQLiteDataAdapter(
-            "SELECT * FROM Liked " +
-            "WHERE Liked.profileID = 1 " +
-            "AND Liked.liked = 1 ", Con);
+            "SELECT * FROM Messages " +
+            "WHERE senderID = 1 " +
+            "AND receiverID = 12 " +
+            "OR senderID = 12 " +
+            "AND receiverID = 1 " +
+            "ORDER BY date ASC", Con);
 
             DataTable DT = new DataTable();
             SqlDA.Fill(DT);

@@ -6,13 +6,14 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 {
     class ViewMatchesRepo : Base
     {
         private string myProfileID;
+        private string myFirstName;
+
         private List<string> matchesProfileIDs = new List<string>();
         public List<string> theirFullNames = new List<string>();
 
@@ -31,6 +32,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             SqlDA.Fill(DT);
             DataRow row = DT.Rows[0];
             myProfileID = row[3].ToString();
+            myFirstName = row[4].ToString();
 
             SqlCmd = new SQLiteCommand(
             "SELECT * FROM Liked " +
@@ -40,16 +42,20 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             SqlDA = new SQLiteDataAdapter(SqlCmd);
             DT = new DataTable();
             SqlDA.Fill(DT);
+            SQLiteCommand SqlCmd2;
+            SQLiteDataAdapter SqlDA2;
+            DataTable DT2;
+
             foreach (DataRow dr in DT.Rows)
             {
-                SQLiteCommand SqlCmd2 = new SQLiteCommand(
+                SqlCmd2 = new SQLiteCommand(
                 "SELECT * FROM Liked " +
                 "WHERE Liked.profileID = " + dr[2].ToString() + " " +
                 "AND Liked.shownProfileID = " + myProfileID + " " +
                 "AND Liked.liked = 1 ", Con);
 
-                SQLiteDataAdapter SqlDA2 = new SQLiteDataAdapter(SqlCmd2);
-                DataTable DT2 = new DataTable();
+                SqlDA2 = new SQLiteDataAdapter(SqlCmd2);
+                DT2 = new DataTable();
                 SqlDA2.Fill(DT2);
                 foreach(DataRow dr2 in DT2.Rows) { matchesProfileIDs.Add(dr2[1].ToString()); }
             }
@@ -58,26 +64,65 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
         public void getMatchesInfo(string email)
         {
             getMyLikedMatches(email);
-            foreach(string ID in matchesProfileIDs)
+            SQLiteConnection Con;
+            SQLiteCommand SqlCmd;
+            SQLiteDataAdapter SqlDA;
+            DataTable DT;
+            DataRow row;
+
+            foreach (string ID in matchesProfileIDs)
             {
-                SQLiteConnection Con = new SQLiteConnection(sqlCon);
+                Con = new SQLiteConnection(sqlCon);
                 Con.Open();
 
-                SQLiteCommand SqlCmd = new SQLiteCommand(
+                SqlCmd = new SQLiteCommand(
                 "SELECT * FROM Profiles " +
                 "WHERE profileID = '" + ID + "' ", Con);
 
-                SQLiteDataAdapter SqlDA = new SQLiteDataAdapter(SqlCmd);
-                DataTable DT = new DataTable();
+                SqlDA = new SQLiteDataAdapter(SqlCmd);
+                DT = new DataTable();
                 SqlDA.Fill(DT);
-                DataRow row = DT.Rows[0];
+                row = DT.Rows[0];
                 theirFullNames.Add(row[1].ToString() + " " + row[2].ToString());
                 Con.Close();
             }
         }
-        public void getMessages(int matchIndex)
+        public string getMessages(int matchIndex)
         {
+            SQLiteConnection Con = new SQLiteConnection(sqlCon);
+            Con.Open();
 
+            SQLiteCommand SqlCmd = new SQLiteCommand(
+            "SELECT * FROM Profiles " +
+            "WHERE profileID = " + matchesProfileIDs[matchIndex] + " ", Con);
+
+            SQLiteDataAdapter SqlDA = new SQLiteDataAdapter(SqlCmd);
+            DataTable DT = new DataTable();
+            SqlDA.Fill(DT);
+            DataRow row = DT.Rows[0];
+            string theirFirstName = row[1].ToString();
+
+            SqlCmd = new SQLiteCommand(
+            "SELECT * FROM Messages " +
+            "WHERE senderID = " + myProfileID + " " +
+            "AND receiverID = " + matchesProfileIDs[matchIndex] + " " +
+            "OR senderID = " + matchesProfileIDs[matchIndex] + " " +
+            "AND receiverID = " + myProfileID + " " +
+            "ORDER BY date ASC", Con);
+
+            SqlDA = new SQLiteDataAdapter(SqlCmd);
+            DT = new DataTable();
+            SqlDA.Fill(DT);
+            string allMessages = "";
+
+            foreach (DataRow row2 in DT.Rows)
+            {
+                if(row[1].ToString() == myProfileID) { allMessages += myFirstName + ": " + row[3].ToString() + "\n"; }
+                else { allMessages += theirFirstName + ": " + row[3].ToString() + "\n"; }
+            }
+            
+            Con.Close();
+            return allMessages;
         }
         public void sendMessage(int matchIndex, string message)
         {

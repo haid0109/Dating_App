@@ -85,9 +85,14 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            
-            
-            
+
+            <TextBlock x:Name="txtblcMessageBox"
+                       Height="auto"
+                       Width="auto"
+                       TextWrapping="Wrap"
+                       FontSize="18"
+                       Padding="10"/>
+
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
