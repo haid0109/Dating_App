@@ -38,7 +38,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 txtblNameAge.Text = NameAge();
                 txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
             }
-            catch (Exception) { MessageBox.Show("You have no more matches."); }
+            catch (Exception) {}
         }
 
         private void btnViewMatches_Click(object sender, RoutedEventArgs e)

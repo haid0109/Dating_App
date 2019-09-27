@@ -48,12 +48,23 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 return;
             }
 
-            if((Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")) - Convert.ToInt32(txtBoxCreateBirthYear.Text + txtBoxCreateBirthMonth.Text + txtBoxCreateBirthDay.Text)) / 10000 < 18)
+            int birthdateNum;
+            if (Int32.TryParse(txtBoxCreateBirthYear.Text + txtBoxCreateBirthMonth.Text + txtBoxCreateBirthDay.Text, out birthdateNum))
+            {
+                birthdateNum = (Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")) - Int32.Parse(txtBoxCreateBirthYear.Text + string.Format("{0:D2}", Int32.Parse(txtBoxCreateBirthMonth.Text)) + string.Format("{0:D2}", Int32.Parse(txtBoxCreateBirthDay.Text)))) / 10000;
+            }
+            else
+            {
+                MessageBox.Show("Your birthdate is not in the right format.");
+                return;
+            }
+
+            if (birthdateNum < 18)
             {
                 MessageBox.Show("You are too young to use this dating app.");
                 return;
             }
-            else if ((Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")) - Convert.ToInt32(txtBoxCreateBirthYear.Text + txtBoxCreateBirthMonth.Text + txtBoxCreateBirthDay.Text)) / 10000 > 125)
+            else if (birthdateNum > 125)
             {
                 MessageBox.Show("You are too old to use this dating app.");
                 return;
@@ -64,9 +75,9 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 App.Current.Resources["createProfileFirstName"] = txtBoxCreateFirstNameProf.Text;
                 App.Current.Resources["createProfileLastName"] = txtBoxCreateLastNameProf.Text;
                 App.Current.Resources["createProfileGender"] = genderProf;
-                App.Current.Resources["createProfileBirthdate"] = txtBoxCreateBirthYear.Text + "-" + 
-                                                                  txtBoxCreateBirthMonth.Text + "-" + 
-                                                                  txtBoxCreateBirthDay.Text;
+                App.Current.Resources["createProfileBirthdate"] = txtBoxCreateBirthYear.Text + "-" +
+                                                                  string.Format("{0:D2}", Int32.Parse(txtBoxCreateBirthMonth.Text)) + "-" +
+                                                                  string.Format("{0:D2}", Int32.Parse(txtBoxCreateBirthDay.Text));
                 App.Current.Resources["createProfileShortDesc"] = txtBoxCreateShortDescProf.Text;
 
                 CreatePreference createPreferences = new CreatePreference();
