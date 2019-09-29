@@ -72,8 +72,8 @@
 
         <StackPanel 
             Orientation="Horizontal" 
-            Grid.Row="1"
-            Grid.RowSpan="2" 
+            Grid.Row="0"
+            Grid.RowSpan="3" 
             Grid.Column="0"
             Width="auto"
             Height="auto">
