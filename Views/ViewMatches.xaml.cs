@@ -47,6 +47,11 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         }
         private void btnSendMessage_Click(object sender, RoutedEventArgs e)
         {
+            if (lsbMatches.SelectedIndex < 0)
+            {
+                MessageBox.Show("You need to select a match before you can send a message");
+                return;
+            }
             int matchIndex = lsbMatches.SelectedIndex;
             myViewMatchesViewModel.viewMatchesRepo.sendMessage(matchIndex, txtBoxSendMessage.Text);
             myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
