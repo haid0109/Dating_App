@@ -173,19 +173,21 @@
             <TextBox x:Name="txtBoxUpdateMinAgePref"
                      ContentElement.TextInput="txtBoxUpdateMinAgePref_TextInput"
                      Height="30" 
-                     Width="110" 
+                     Width="110"
+                     TextAlignment="Center"
                      Margin="55 -30 0 0" 
                      BorderThickness="2"/>
 
             <Label x:Name="lblDash"
                    Content="-" 
                    FontSize="25" 
-                   Margin="322 -40 0 0"/>
+                   Margin="320 -40 0 0"/>
 
             <TextBox x:Name="txtBoxUpdateMaxAgePref"
                      ContentElement.TextInput="txtBoxUpdateMaxAgePref_TextInput"
                      Height="30" 
                      Width="110" 
+                     TextAlignment="Center"
                      Margin="335 -35 0 0" 
                      BorderThickness="2"/>
 

@@ -62,6 +62,13 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 return;
             }
 
+            if (Int16.TryParse(txtBoxUpdateMinAgePref.Text, out short minAgePref) && Int16.TryParse(txtBoxUpdateMaxAgePref.Text, out short maxAgePref)) { }
+            else
+            {
+                MessageBox.Show("Your age preference is not in the right format.");
+                return;
+            }
+
             ConfimWithLogin confirmWithLogin = new ConfimWithLogin();
             confirmWithLogin.ShowDialog();
 
