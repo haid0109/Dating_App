@@ -84,16 +84,15 @@
             </ListBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
-
-            <TextBlock x:Name="txtblcMessageBox"
-                       Height="auto"
-                       Width="auto"
-                       TextWrapping="Wrap"
-                       FontSize="18"
-                       Padding="10"/>
-
-        </StackPanel>
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <TextBlock x:Name="txtblcMessageBox"
+                               TextWrapping="Wrap"
+                               FontSize="18"
+                               Padding="10">
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
 
         <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
 
