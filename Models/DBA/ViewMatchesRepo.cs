@@ -118,10 +118,9 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 
             foreach (DataRow row2 in DT.Rows)
             {
-                if(row[1].ToString() == myProfileID) { allMessages += myFirstName + ": " + row[3].ToString() + "\n"; }
-                else { allMessages += theirFirstName + ": " + row[3].ToString() + "\n"; }
+                if(row2[1].ToString() == myProfileID) { allMessages += myFirstName + ": " + row2[3].ToString() + "\n"; }
+                else { allMessages += theirFirstName + ": " + row2[3].ToString() + "\n"; }
             }
-            
             Con.Close();
             return allMessages;
         }

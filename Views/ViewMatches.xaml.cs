@@ -54,14 +54,14 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             }
             int matchIndex = lsbMatches.SelectedIndex;
             myViewMatchesViewModel.viewMatchesRepo.sendMessage(matchIndex, txtBoxSendMessage.Text);
-            myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
+            txtblcMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
             txtBoxSendMessage.Clear();
         }
 
         private void lsbMatches_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int matchIndex = lsbMatches.SelectedIndex;
-            myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
+            txtblcMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
         }
     }
 }
