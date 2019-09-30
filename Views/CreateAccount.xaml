@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         mc:Ignorable="d"
         Title="CreateAccount" Height="325" Width="455">
-    <Grid>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
 
         <Label Content="Create Account" 

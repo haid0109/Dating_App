@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,16 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         private void TxtBoxCreateShortDescProf_TextInput(object sender, TextCompositionEventArgs e) { }
         private void CmbBoxCreateGenderProf_TextInput(object sender, TextCompositionEventArgs e) { }
 
+        private void BtnBrowse_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog browseImage = new OpenFileDialog();
+            browseImage.Filter = "Image files (*.jpg,*.jpeg,*.jpe,*.jfif,*.png)|*.jpg;*.jpeg;*.jpe;*.jfif;*.png";
+
+            if (browseImage.ShowDialog() == true)
+            {
+                imgProfilePicture.Source = new BitmapImage(new Uri(browseImage.FileName));
+            }
+        }
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
             CreateAccount createAccount = new CreateAccount();
@@ -38,6 +49,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         }
         private void BtnCreateProfile_Click(object sender, RoutedEventArgs e)
         {
+            #region checks the persons gender
             string genderProf = "";
             if (cmbBoxCreateGenderProf.Text == "Male") { genderProf = "M"; }
             else if (cmbBoxCreateGenderProf.Text == "Female") { genderProf = "F"; }
@@ -47,7 +59,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 MessageBox.Show("You need to choose a gender.");
                 return;
             }
-
+            #endregion
+            #region checks if birthdate is in correct format, and calculates the age from birthdate
             int birthdateNum;
             if (Int32.TryParse(txtBoxCreateBirthYear.Text + txtBoxCreateBirthMonth.Text + txtBoxCreateBirthDay.Text, out birthdateNum))
             {
@@ -58,7 +71,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 MessageBox.Show("Your birthdate is not in the right format.");
                 return;
             }
-
+            #endregion
+            #region checks if the person is too young or too old
             if (birthdateNum < 18)
             {
                 MessageBox.Show("You are too young to use this dating app.");
@@ -69,7 +83,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 MessageBox.Show("You are too old to use this dating app.");
                 return;
             }
-
+            #endregion
+            #region saves the input data, and opens preferences window
             try
             {
                 App.Current.Resources["createProfileFirstName"] = txtBoxCreateFirstNameProf.Text;
@@ -85,6 +100,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 this.Close();
             }
             catch (Exception exc) { MessageBox.Show(exc.Message); }
+            #endregion
         }
     }
 }

@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
         mc:Ignorable="d"
-        Title="Settings" Height="700" Width="480">
+        Title="Settings" Height="740" Width="480">
     <Window.DataContext>
         <viewModels:SettingsViewModel x:Name="mySettingsViewModel" />
     </Window.DataContext>
-    <Grid>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="*"/>
@@ -21,7 +21,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="117"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="210"/>
+            <RowDefinition Height="250"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
@@ -140,6 +140,24 @@
                    FontSize="20" 
                    Margin="0 0 0 0"/>
 
+            <Button x:Name="btnBrowse" 
+                Height="30" 
+                Width="100" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                Content="Browse"
+                FontSize="20" 
+                Grid.Row="7" 
+                Margin="195 -30 0 0"
+                Click="BtnBrowse_Click"/>
+
+            <Image x:Name="imgProfilePicture"
+                   Height="100"
+                   Width="100"
+                   Stretch="Uniform"
+                   StretchDirection="DownOnly"
+                   Margin="0 10 0 0"/>
+
         </StackPanel>
 
         <Label Content="Preferences"
@@ -181,7 +199,7 @@
             <Label x:Name="lblDash"
                    Content="-" 
                    FontSize="25" 
-                   Margin="320 -40 0 0"/>
+                   Margin="310 -40 0 0"/>
 
             <TextBox x:Name="txtBoxUpdateMaxAgePref"
                      ContentElement.TextInput="txtBoxUpdateMaxAgePref_TextInput"

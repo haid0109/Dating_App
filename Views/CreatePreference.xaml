@@ -6,21 +6,21 @@
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
         mc:Ignorable="d"
-        Title="CreatePreference" Height="250" Width="380">
+        Title="CreatePreference" Height="225" Width="380">
     <Window.DataContext>
         <viewModels:CreatePreferencesViewModel x:Name="myCreatePreferencesViewModel" />
     </Window.DataContext>
-    <Grid>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="380"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
         <Label Content="Preferences"
@@ -28,7 +28,7 @@
                HorizontalAlignment="Center"
                FontSize="35"/>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0 5 0 0">
 
             <Label x:Name="lblCreateGenderPref"
                    Content="Gender" 

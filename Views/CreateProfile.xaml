@@ -5,22 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         mc:Ignorable="d"
-        Title="CreateProfile" Height="580" Width="490">
-    <Grid>
+        Title="CreateProfile" Height="630" Width="490"
+        SizeToContent="WidthAndHeight">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="auto"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <Label Content="Create Profile"
@@ -33,7 +34,7 @@
             <Label x:Name="lblCreateFirstNameProf"
                    Content="Firstname" 
                    FontSize="20" 
-                   Margin="0 10 0 0"/>
+                   Margin="5 10 0 0"/>
 
             <TextBox x:Name="txtBoxCreateFirstNameProf"
                      ContentElement.TextInput="TxtBoxCreateFirstNameProf_TextInput"
@@ -49,7 +50,7 @@
             <Label x:Name="lblCreateLastNameProf"
                    Content="Lastname" 
                    FontSize="20" 
-                   Margin="0 10 0 0"/>
+                   Margin="5 10 0 0"/>
 
             <TextBox x:Name="txtBoxCreateLastNameProf" 
                      ContentElement.TextInput="TxtBoxCreateLastNameProf_TextInput"
@@ -65,7 +66,7 @@
             <Label x:Name="lblCreateGenderProf"
                    Content="Gender" 
                    FontSize="20" 
-                   Margin="0 10 0 0"/>
+                   Margin="5 10 0 0"/>
 
             <ComboBox x:Name="cmbBoxCreateGenderProf"
                      ContentElement.TextInput="CmbBoxCreateGenderProf_TextInput"
@@ -87,7 +88,7 @@
             <Label x:Name="lblCreateBirthdateProf"
                    Content="Birthdate" 
                    FontSize="20" 
-                   Margin="0 10 0 0"/>
+                   Margin="5 10 0 0"/>
 
             <TextBox x:Name="txtBoxCreateBirthDay"
                      ContentElement.TextInput="TxtBoxCreateBirthDay_TextInput"
@@ -142,14 +143,14 @@
             <Label x:Name="lblCreateShortDescProf"
                    Content="Short Description" 
                    FontSize="20" 
-                   Margin="0 0 0 0"/>
+                   Margin="5 0 0 0"/>
 
             <TextBox x:Name="txtBoxCreateShortDescProf"
                      ContentElement.TextInput="TxtBoxCreateShortDescProf_TextInput"
                      Height="90" 
                      Width="250" 
                      TextWrapping="Wrap"
-                     Margin="60 0 0 0" 
+                     Margin="62 0 0 0" 
                      BorderThickness="2" />
 
         </StackPanel>
@@ -159,9 +160,25 @@
             <Label x:Name="lblCreateProfilePicture"
                    Content="Profile Picture" 
                    FontSize="20" 
-                   Margin="0 0 0 0"/>
-            
-            
+                   Margin="5 0 0 0"/>
+
+            <Button x:Name="btnBrowse" 
+                Height="30" 
+                Width="100" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                Content="Browse"
+                FontSize="20" 
+                Grid.Row="7" 
+                Margin="93 5 0 0"
+                Click="BtnBrowse_Click"/>
+
+            <Image x:Name="imgProfilePicture"
+                   Height="100"
+                   Width="100"
+                   Stretch="Uniform"
+                   StretchDirection="DownOnly"
+                   Margin="-200 45 0 0"/>
 
         </StackPanel>
 

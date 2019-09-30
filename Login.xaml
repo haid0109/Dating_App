@@ -10,17 +10,17 @@
     <Window.DataContext>
         <viewModels:LoginViewModel x:Name="myLoginViewModel" />
     </Window.DataContext>
-    <Grid>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <Label Content="Dating App Name" 

@@ -86,11 +86,13 @@
 
         <ScrollViewer Grid.Row="1" Grid.Column="1">
             <StackPanel>
-                <TextBlock x:Name="txtblcMessageBox"
-                               TextWrapping="Wrap"
-                               FontSize="18"
-                               Padding="10">
-                </TextBlock>
+                <TextBox x:Name="txtboxMessageBox"
+                         IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         FontSize="18"
+                         Padding="10"
+                         BorderThickness="0">
+                </TextBox>
             </StackPanel>
         </ScrollViewer>
 
@@ -101,6 +103,7 @@
                      Height="35"
                      Width="540"
                      TextWrapping="Wrap"
+                     AcceptsReturn="True"
                      Margin="0 5 0 0" 
                      BorderThickness="2"/>
 

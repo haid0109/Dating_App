@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,16 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             this.Close();
         }
 
+        private void BtnBrowse_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog browseImage = new OpenFileDialog();
+            browseImage.Filter = "Image files (*.jpg,*.jpeg,*.jpe,*.jfif,*.png)|*.jpg;*.jpeg;*.jpe;*.jfif;*.png";
+
+            if (browseImage.ShowDialog() == true)
+            {
+                imgProfilePicture.Source = new BitmapImage(new Uri(browseImage.FileName));
+            }
+        }
         private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             string genderPref = "";
@@ -115,5 +126,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             }
             else { return; }
         }
+
     }
 }
