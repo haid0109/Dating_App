@@ -52,12 +52,22 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 MessageBox.Show("You need to select a match before you can send a message");
                 return;
             }
-            int matchIndex = lsbMatches.SelectedIndex;
-            myViewMatchesViewModel.viewMatchesRepo.sendMessage(matchIndex, txtBoxSendMessage.Text);
-            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
+            myViewMatchesViewModel.viewMatchesRepo.sendMessage(lsbMatches.SelectedIndex, txtBoxSendMessage.Text);
+            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(lsbMatches.SelectedIndex);
             txtboxMessageBox.Focus();
             txtboxMessageBox.CaretIndex = txtboxMessageBox.Text.Length;
             txtboxMessageBox.ScrollToEnd();
+            txtBoxSendMessage.Clear();
+        }
+        private void btnUnmatch_Click(object sender, RoutedEventArgs e)
+        {
+            if (lsbMatches.SelectedIndex < 0)
+            {
+                MessageBox.Show("You need to select a match before you can unmatch");
+                return;
+            }
+            int matchIndex = lsbMatches.SelectedIndex;
+            myViewMatchesViewModel.viewMatchesRepo.sendMessage(matchIndex, txtBoxSendMessage.Text);
             txtBoxSendMessage.Clear();
         }
 
@@ -69,5 +79,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             txtboxMessageBox.CaretIndex = txtboxMessageBox.Text.Length;
             txtboxMessageBox.ScrollToEnd();
         }
+
     }
 }
