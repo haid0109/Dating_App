@@ -66,15 +66,24 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 MessageBox.Show("You need to select a match before you can unmatch");
                 return;
             }
-            int matchIndex = lsbMatches.SelectedIndex;
-            myViewMatchesViewModel.viewMatchesRepo.sendMessage(matchIndex, txtBoxSendMessage.Text);
-            txtBoxSendMessage.Clear();
+
+            ConfimWithLogin confirmWithLogin = new ConfimWithLogin();
+            confirmWithLogin.ShowDialog();
+
+            if (App.Current.Resources["confirmWithLoginBool"].ToString() == "True")
+            {    
+                myViewMatchesViewModel.viewMatchesRepo.unmatch(lsbMatches.SelectedIndex);
+                MessageBox.Show("Unmatch succesful.");
+                ViewMatches viewMatches = new ViewMatches();
+                viewMatches.Show();
+                this.Close();
+            }
+            else { return; }
         }
 
         private void lsbMatches_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int matchIndex = lsbMatches.SelectedIndex;
-            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
+            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(lsbMatches.SelectedIndex);
             txtboxMessageBox.Focus();
             txtboxMessageBox.CaretIndex = txtboxMessageBox.Text.Length;
             txtboxMessageBox.ScrollToEnd();

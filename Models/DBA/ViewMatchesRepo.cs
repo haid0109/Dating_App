@@ -137,5 +137,27 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             Con.Close();
             getMessages(matchIndex);
         }
+        public void unmatch(int matchIndex)
+        {
+            SQLiteConnection Con = new SQLiteConnection(sqlCon);
+            Con.Open();
+
+            SQLiteCommand SqlCmd = new SQLiteCommand(
+            "DELETE FROM Messages " +
+            "WHERE senderID = " + myProfileID + " " +
+            "AND receiverID = " + matchesProfileIDs[matchIndex] + " " +
+            "OR senderID = " + matchesProfileIDs[matchIndex] + " " +
+            "AND receiverID = " + myProfileID + " ", Con);
+            SqlCmd.ExecuteNonQuery();
+
+            SqlCmd = new SQLiteCommand(
+            "UPDATE Liked " +
+            "SET liked = 0 " +
+            "WHERE profileID = " + myProfileID + " " +
+            "AND shownProfileID = " + matchesProfileIDs[matchIndex] + " ", Con);
+            SqlCmd.ExecuteNonQuery();
+
+            Con.Close();
+        }
     }
 }
