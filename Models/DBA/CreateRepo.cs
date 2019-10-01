@@ -129,6 +129,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             //How you should do it:
             //SqlCommand SqlCmd = new SqlCommand("INSERT INTO Users([email], [password]) VALUES(@email, @password)", Con);
             //SqlCmd.Parameters.Add("@email", email);
+            //https://stackoverflow.com/questions/625029/how-do-i-store-and-retrieve-a-blob-from-sqlite
 
             SQLiteCommand SqlCmd = new SQLiteCommand("INSERT INTO Users([email], [password]) VALUES('" + Email + "', '" + Password + "')", Con);
 
