@@ -39,6 +39,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             if (browseImage.ShowDialog() == true)
             {
                 imgProfilePicture.Source = new BitmapImage(new Uri(browseImage.FileName));
+
             }
         }
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
