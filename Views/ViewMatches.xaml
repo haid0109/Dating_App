@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_2019_9_3_Dating_app_XAML_.Views"
         xmlns:viewModels="clr-namespace:_2019_9_3_Dating_app_XAML_.ViewModels"
         mc:Ignorable="d"
-        Title="ViewMatches" Height="500" Width="900">
+        Title="ViewMatches" Height="500" Width="920">
     <Window.DataContext>
         <viewModels:ViewMatchesViewModel x:Name="myViewMatchesViewModel" />
     </Window.DataContext>
@@ -101,7 +101,7 @@
             <TextBox x:Name="txtBoxSendMessage"
                      ContentElement.TextInput="txtBoxSendMessage_TextInput"
                      Height="35"
-                     Width="540"
+                     Width="450"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
                      Margin="0 5 0 0" 
@@ -114,6 +114,14 @@
                     Content="Send"
                     FontSize="23"
                     Click="btnSendMessage_Click"/>
+
+            <Button x:Name="btnUnmatch" 
+                    Margin="10 5 0 0"
+                    Height="35" 
+                    Width="100"
+                    Content="Unmatch"
+                    FontSize="23"
+                    Click="btnUnmatch_Click"/>
 
         </StackPanel>
         

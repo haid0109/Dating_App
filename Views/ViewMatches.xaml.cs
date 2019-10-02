@@ -52,22 +52,42 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 MessageBox.Show("You need to select a match before you can send a message");
                 return;
             }
-            int matchIndex = lsbMatches.SelectedIndex;
-            myViewMatchesViewModel.viewMatchesRepo.sendMessage(matchIndex, txtBoxSendMessage.Text);
-            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
+            myViewMatchesViewModel.viewMatchesRepo.sendMessage(lsbMatches.SelectedIndex, txtBoxSendMessage.Text);
+            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(lsbMatches.SelectedIndex);
             txtboxMessageBox.Focus();
             txtboxMessageBox.CaretIndex = txtboxMessageBox.Text.Length;
             txtboxMessageBox.ScrollToEnd();
             txtBoxSendMessage.Clear();
         }
+        private void btnUnmatch_Click(object sender, RoutedEventArgs e)
+        {
+            if (lsbMatches.SelectedIndex < 0)
+            {
+                MessageBox.Show("You need to select a match before you can unmatch");
+                return;
+            }
+
+            ConfimWithLogin confirmWithLogin = new ConfimWithLogin();
+            confirmWithLogin.ShowDialog();
+
+            if (App.Current.Resources["confirmWithLoginBool"].ToString() == "True")
+            {    
+                myViewMatchesViewModel.viewMatchesRepo.unmatch(lsbMatches.SelectedIndex);
+                MessageBox.Show("Unmatch succesful.");
+                ViewMatches viewMatches = new ViewMatches();
+                viewMatches.Show();
+                this.Close();
+            }
+            else { return; }
+        }
 
         private void lsbMatches_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int matchIndex = lsbMatches.SelectedIndex;
-            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(matchIndex);
+            txtboxMessageBox.Text = myViewMatchesViewModel.viewMatchesRepo.getMessages(lsbMatches.SelectedIndex);
             txtboxMessageBox.Focus();
             txtboxMessageBox.CaretIndex = txtboxMessageBox.Text.Length;
             txtboxMessageBox.ScrollToEnd();
         }
+
     }
 }

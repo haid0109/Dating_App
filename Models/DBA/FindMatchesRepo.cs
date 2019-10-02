@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 {
@@ -43,13 +44,12 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             SqlDA.Fill(DT);
             DataRow row = DT.Rows[0];
             Con.Close();
-
             myProfileID = row[3].ToString();
             myGender = row[6].ToString();
-            myAge = row[15].ToString();
-            myPrefGender = row[11].ToString();
-            myPrefMinAge = row[12].ToString();
-            myPrefMaxAge = row[13].ToString();
+            myAge = row[16].ToString();
+            myPrefGender = row[12].ToString();
+            myPrefMinAge = row[13].ToString();
+            myPrefMaxAge = row[14].ToString();
         }
         public void findThem(string email)
         {
@@ -81,7 +81,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             theirFirstname = row[4].ToString();
             theirLastname = row[5].ToString();
             theirShortDesc = row[8].ToString();
-            theirAge = row[15].ToString();
+            theirAge = row[16].ToString();
 
             Con.Close();
         }

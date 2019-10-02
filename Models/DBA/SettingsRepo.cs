@@ -34,7 +34,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 
             userID = row[0].ToString();
             profileID = row[3].ToString();
-            preferenceID = row[10].ToString();
+            preferenceID = row[11].ToString();
         }
 
         public void updateEmail(string email)
