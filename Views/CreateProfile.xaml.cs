@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using _2019_9_3_Dating_app_XAML_.Helpers;
 
 namespace _2019_9_3_Dating_app_XAML_.Views
 {
@@ -38,8 +39,11 @@ namespace _2019_9_3_Dating_app_XAML_.Views
 
             if (browseImage.ShowDialog() == true)
             {
-                imgProfilePicture.Source = new BitmapImage(new Uri(browseImage.FileName));
-
+                BitmapImage bitmapImage = new BitmapImage(new Uri(browseImage.FileName));
+                ProfilePicConverter dd = new ProfilePicConverter();
+                if(bitmapImage.StreamSource == null) { MessageBox.Show("hej"); }
+                Byte[] byteArray = dd.bitmapImageToByteArray(bitmapImage);
+                //imgProfilePicture.Source = dd.byteArrayToBitmapImage();
             }
         }
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)

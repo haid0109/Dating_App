@@ -1,27 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
+using System.Windows.Controls;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace _2019_9_3_Dating_app_XAML_.Helpers
 {
     class ProfilePicConverter
     {
-        protected byte[] imageToByteArray(Image profilePic)
+        public Byte[] bitmapImageToByteArray(BitmapImage bitmapImage)
         {
-            MemoryStream mryStr = new MemoryStream();
-            profilePic.Save(mryStr, System.Drawing.Imaging.ImageFormat.Gif);
-            return mryStr.ToArray();
+            Stream stream = bitmapImage.StreamSource;
+            Byte[] byteArray = null;
+            using (BinaryReader binaryReader = new BinaryReader(stream))
+            {
+                byteArray = binaryReader.ReadBytes((Int32)stream.Length);
+            }
+            return byteArray;
         }
 
-        protected Image byteArrayToImage(byte[] byteArrayIn)
+        public BitmapImage byteArrayToBitmapImage(Byte[] byteArray)
         {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
-            return returnImage;
+            MemoryStream mryStr = new MemoryStream(byteArray);
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.StreamSource = mryStr;
+            bitmapImage.EndInit();
+            return bitmapImage;
         }
     }
 }
