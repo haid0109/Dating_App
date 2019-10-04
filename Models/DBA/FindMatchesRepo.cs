@@ -23,6 +23,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
         public string theirFirstname { get; set; }
         public string theirLastname { get; set; }
         public string theirShortDesc { get; set; }
+        public byte[] theirProfilePicByteArray { get; set; }
         public string theirAge { get; set; }
 
         private void findMe(string email)
@@ -81,6 +82,7 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             theirFirstname = row[4].ToString();
             theirLastname = row[5].ToString();
             theirShortDesc = row[8].ToString();
+            theirProfilePicByteArray = (byte[])row[9];
             theirAge = row[16].ToString();
 
             Con.Close();

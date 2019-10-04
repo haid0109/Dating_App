@@ -1,4 +1,5 @@
 ﻿using _2019_9_3_Dating_app_XAML_.ViewModels;
+using _2019_9_3_Dating_app_XAML_.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +35,14 @@ namespace _2019_9_3_Dating_app_XAML_.Views
 
             try
             {
+                ProfilePicConverter PPC = new ProfilePicConverter();
+
                 myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());
                 txtblNameAge.Text = NameAge();
                 txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
+                imgProfilePicture.Source = PPC.byteArrayToBitmapImage(myFindMatchesViewModel.findMatchesRepo.theirProfilePicByteArray);
             }
-            catch (Exception) {}
+            catch (Exception exc) { MessageBox.Show(exc.Message); }
         }
 
         private void btnViewMatches_Click(object sender, RoutedEventArgs e)
@@ -74,6 +78,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             {
                 txtblNameAge.Text = null;
                 txtblShortDesc.Text = null;
+                imgProfilePicture.Source = null;
                 MessageBox.Show("You have no more matches.");
             }
         }
@@ -91,6 +96,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             {
                 txtblNameAge.Text = null;
                 txtblShortDesc.Text = null;
+                imgProfilePicture.Source = null;
                 MessageBox.Show("You have no more matches.");
             }
         }

@@ -20,7 +20,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class Settings : Window
     {
-        public Settings() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; }
+        public Settings() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; App.Current.Resources["updateProfilePicPath"] = ""; }
 
         private void txtBoxUpdateEmail_TextInput(object sender, TextCompositionEventArgs e) { }
         private void txtBoxUpdatePassword_TextInput(object sender, TextCompositionEventArgs e){ }
@@ -54,11 +54,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         {
             OpenFileDialog browseImage = new OpenFileDialog();
             browseImage.Filter = "Image files (*.jpg,*.jpeg,*.jpe,*.jfif,*.png)|*.jpg;*.jpeg;*.jpe;*.jfif;*.png";
-
-            if (browseImage.ShowDialog() == true)
-            {
-                imgProfilePicture.Source = new BitmapImage(new Uri(browseImage.FileName));
-            }
+            if (browseImage.ShowDialog() == true) { imgProfilePicture.Source = new BitmapImage(new Uri(browseImage.FileName)); }
+            App.Current.Resources["updateProfilePicPath"] = browseImage.FileName;
         }
         private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
@@ -74,6 +71,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
             }
 
             if (Int16.TryParse(txtBoxUpdateMinAgePref.Text, out short minAgePref) && Int16.TryParse(txtBoxUpdateMaxAgePref.Text, out short maxAgePref)) { }
+            else if (txtBoxUpdateMinAgePref.Text == "" && txtBoxUpdateMaxAgePref.Text == "") { }
             else
             {
                 MessageBox.Show("Your age preference is not in the right format.");
@@ -92,6 +90,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                     mySettingsViewModel.settingsRepo.updateEmail(txtBoxUpdateEmail.Text);
                     mySettingsViewModel.settingsRepo.updatePassword(txtBoxUpdatePassword.Password);
                     mySettingsViewModel.settingsRepo.updateShortDesc(txtBoxUpdateShortDesc.Text);
+                    mySettingsViewModel.settingsRepo.updateProfilePic(App.Current.Resources["updateProfilePicPath"].ToString());
                     mySettingsViewModel.settingsRepo.updateGenderPref(genderPref);
                     mySettingsViewModel.settingsRepo.updateMinAgePref(txtBoxUpdateMinAgePref.Text);
                     mySettingsViewModel.settingsRepo.updateMaxAgePref(txtBoxUpdateMaxAgePref.Text);

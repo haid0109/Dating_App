@@ -1,4 +1,5 @@
 ﻿using _2019_9_3_Dating_app_XAML_.Assets;
+using _2019_9_3_Dating_app_XAML_.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -78,6 +79,29 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
                 SQLiteCommand SqlCmd = new SQLiteCommand("UPDATE profiles " +
                                                          "SET shortDesc = '" + shortDesc + "'" +
                                                          "WHERE profileID = '" + profileID + "'", Con);
+
+                SqlCmd.ExecuteNonQuery();
+                Con.Close();
+            }
+        }
+
+        public void updateProfilePic(string profilePicPath)
+        {
+            if (profilePicPath == "") { return; }
+            else
+            {
+                ProfilePicConverter PPC = new ProfilePicConverter();
+
+                SQLiteConnection Con = new SQLiteConnection(sqlCon);
+                Con.Open();
+                SQLiteCommand SqlCmd = new SQLiteCommand("UPDATE profiles " +
+                                                         "SET profilePicture = @profilePicture " +
+                                                         "WHERE profileID = @profileID", Con);
+
+                
+                SqlCmd.Parameters.Add("@profilePicture", DbType.Binary, PPC.imageToByteArray(profilePicPath).Length);
+                SqlCmd.Parameters.AddWithValue("@profilePicture", PPC.imageToByteArray(profilePicPath));
+                SqlCmd.Parameters.AddWithValue("@profileID", profileID);
 
                 SqlCmd.ExecuteNonQuery();
                 Con.Close();

@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using _2019_9_3_Dating_app_XAML_.Helpers;
 
 namespace _2019_9_3_Dating_app_XAML_.Views
 {
@@ -21,7 +20,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
     /// </summary>
     public partial class CreateProfile : Window
     {
-        public CreateProfile() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; }
+        public CreateProfile() { InitializeComponent(); WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen; App.Current.Resources["createProfilePicPath"] = ""; }
         private void TxtBoxCreateBirthdayDay_TextChanged(object sender, TextChangedEventArgs e) { }
         private void TxtBoxCreateFirstNameProf_TextInput(object sender, TextCompositionEventArgs e) { }
         private void TxtBoxCreateLastNameProf_TextInput(object sender, TextCompositionEventArgs e) { }
@@ -36,15 +35,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         {
             OpenFileDialog browseImage = new OpenFileDialog();
             browseImage.Filter = "Image files (*.jpg,*.jpeg,*.jpe,*.jfif,*.png)|*.jpg;*.jpeg;*.jpe;*.jfif;*.png";
-
-            if (browseImage.ShowDialog() == true)
-            {
-                BitmapImage bitmapImage = new BitmapImage(new Uri(browseImage.FileName));
-                ProfilePicConverter dd = new ProfilePicConverter();
-                if(bitmapImage.StreamSource == null) { MessageBox.Show("hej"); }
-                Byte[] byteArray = dd.bitmapImageToByteArray(bitmapImage);
-                //imgProfilePicture.Source = dd.byteArrayToBitmapImage();
-            }
+            if (browseImage.ShowDialog() == true) { imgProfilePicture.Source = new BitmapImage(new Uri(browseImage.FileName)); }
+            App.Current.Resources["createProfilePicPath"] = browseImage.FileName;
         }
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
@@ -99,6 +91,12 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                                                                   string.Format("{0:D2}", Int32.Parse(txtBoxCreateBirthMonth.Text)) + "-" +
                                                                   string.Format("{0:D2}", Int32.Parse(txtBoxCreateBirthDay.Text));
                 App.Current.Resources["createProfileShortDesc"] = txtBoxCreateShortDescProf.Text;
+
+                if (App.Current.Resources["createProfilePicPath"].ToString() == "")
+                {
+                    MessageBox.Show("You need to choose a profile picture.");
+                    return;
+                }
 
                 CreatePreference createPreferences = new CreatePreference();
                 createPreferences.Show();

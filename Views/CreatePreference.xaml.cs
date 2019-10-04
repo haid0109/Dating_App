@@ -67,8 +67,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 return;
             }
 
-            try
-            {
+            //try
+            //{
                 myCreatePreferencesViewModel.createRepo.Email = App.Current.Resources["createAccountEmail"].ToString();
                 myCreatePreferencesViewModel.createRepo.Password = App.Current.Resources["createAccountPassword"].ToString();
 
@@ -77,6 +77,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 myCreatePreferencesViewModel.createRepo.Gender = App.Current.Resources["createProfileGender"].ToString();
                 myCreatePreferencesViewModel.createRepo.Birthdate = App.Current.Resources["createProfileBirthdate"].ToString();
                 myCreatePreferencesViewModel.createRepo.ShortDesc = App.Current.Resources["createProfileShortDesc"].ToString();
+                myCreatePreferencesViewModel.createRepo.ProfilePicPath = App.Current.Resources["createProfilePicPath"].ToString();
 
                 myCreatePreferencesViewModel.createRepo.GenderPref = genderPref;
                 myCreatePreferencesViewModel.createRepo.MinAge = Convert.ToInt16(txtBoxCreateMinAgePref.Text);
@@ -89,8 +90,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 Login login = new Login();
                 login.Show();
                 this.Close();
-            }
-            catch (Exception exc) { MessageBox.Show(exc.Message); }
+            //}
+            //catch (Exception exc) { MessageBox.Show(exc.Message); }
         }
     }
 }

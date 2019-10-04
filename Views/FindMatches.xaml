@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            
+
             <Label Content="Find Matches"
                    HorizontalAlignment="Center"
                    FontSize="35" />
@@ -70,11 +70,16 @@
 
         </StackPanel>
 
-        <DockPanel Grid.Row="1">
 
+        <StackPanel Grid.Row="1">
 
+            <Image x:Name="imgProfilePicture"
+                       Height="690"
+                       Width="490"
+                       Stretch="Uniform"
+                       StretchDirection="DownOnly"/>
 
-        </DockPanel>
+        </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="2">
 
@@ -82,12 +87,14 @@
                        Text="" 
                        FontSize="20" 
                        TextWrapping="Wrap"
+                       TextAlignment="Center"
                        Margin="20 0 0 0"/>
 
             <TextBlock x:Name="txtblShortDesc"
                        Text=""
                        FontSize="15" 
                        TextWrapping="Wrap"
+                       TextAlignment="Center"
                        Margin="20 5 0 0"/>
 
         </StackPanel>

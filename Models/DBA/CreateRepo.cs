@@ -1,4 +1,5 @@
 ﻿using _2019_9_3_Dating_app_XAML_.Assets;
+using _2019_9_3_Dating_app_XAML_.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -88,6 +89,17 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
             }
         }
 
+        private string profilePicPath;
+        public string ProfilePicPath
+        {
+            get { return profilePicPath; }
+            set
+            {
+                profilePicPath = value;
+                OnPropertyChanged("ProfilePicPath");
+            }
+        }
+
         private string genderPref;
         public string GenderPref
         {
@@ -153,10 +165,22 @@ namespace _2019_9_3_Dating_app_XAML_.Models.DBA
 
         public void createProfile()
         {
+            ProfilePicConverter PPC = new ProfilePicConverter();
             SQLiteConnection Con = new SQLiteConnection(sqlCon);
             Con.Open();
-            SQLiteCommand SqlCmd = new SQLiteCommand("INSERT INTO Profiles([firstName], [lastName], [gender], [birthdate], [shortDesc], [userID]) " +
-                                               "VALUES('" + firstName + "', '" + lastName + "', '" + gender + "', '" + birthdate + "', '" + shortDesc + "', '" + profileFKInsert() + "')", Con);
+
+            SQLiteCommand SqlCmd = new SQLiteCommand(
+            "INSERT INTO Profiles([firstName], [lastName], [gender], [birthdate], [shortDesc], [profilePicture], [userID]) " +
+            "VALUES(@firstName, @lastName, @gender, @birthdate, @shortDesc, @profilePicture, @userID)", Con);
+
+            SqlCmd.Parameters.AddWithValue("@firstName", firstName);
+            SqlCmd.Parameters.AddWithValue("@lastName", lastName);
+            SqlCmd.Parameters.AddWithValue("@gender", gender);
+            SqlCmd.Parameters.AddWithValue("@birthdate", birthdate);
+            SqlCmd.Parameters.AddWithValue("@shortDesc", shortDesc);
+            SqlCmd.Parameters.Add("@profilePicture", DbType.Binary, PPC.imageToByteArray(profilePicPath).Length);
+            SqlCmd.Parameters.AddWithValue("@profilePicture", PPC.imageToByteArray(profilePicPath));
+            SqlCmd.Parameters.AddWithValue("@userID", profileFKInsert());
 
             SqlCmd.ExecuteNonQuery();
             Con.Close();
