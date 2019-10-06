@@ -35,7 +35,6 @@ C:\Users\Haidar\Documents\GitHub\Dating_App\bin\Debug\2019-9-3(Dating app XAML).
 C:\Users\Haidar\Documents\GitHub\Dating_App\bin\Debug\System.Data.SQLite.dll
 C:\Users\Haidar\Documents\GitHub\Dating_App\bin\Debug\System.Data.SQLite.xml
 C:\Users\Haidar\Documents\GitHub\Dating_App\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\SELECT\SHOW.g.cs
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\CreateAccount.g.cs
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Login.g.cs
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\CreatePreference.g.cs
@@ -46,7 +45,6 @@ C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\App.g.cs
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML)_MarkupCompile.cache
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML)_MarkupCompile.lref
-C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\SELECT\SHOW.baml
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\CreateAccount.baml
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Login.baml
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\CreatePreference.baml
@@ -69,4 +67,3 @@ C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\ConfimWithLogin.g.cs
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\Settings.g.cs
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\ConfimWithLogin.baml
 C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\Views\Settings.baml
-C:\Users\Haidar\Documents\GitHub\Dating_App\obj\Debug\2019-9-3(Dating app XAML).csprojAssemblyReference.cache

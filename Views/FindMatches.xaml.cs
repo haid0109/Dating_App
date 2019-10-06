@@ -28,6 +28,8 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                    myFindMatchesViewModel.findMatchesRepo.theirAge;
         }
 
+        ProfilePicConverter PPC = new ProfilePicConverter();
+
         public FindMatches()
         {
             InitializeComponent();
@@ -35,14 +37,12 @@ namespace _2019_9_3_Dating_app_XAML_.Views
 
             try
             {
-                ProfilePicConverter PPC = new ProfilePicConverter();
-
                 myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());
                 txtblNameAge.Text = NameAge();
                 txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
                 imgProfilePicture.Source = PPC.byteArrayToBitmapImage(myFindMatchesViewModel.findMatchesRepo.theirProfilePicByteArray);
             }
-            catch (Exception exc) { MessageBox.Show(exc.Message); }
+            catch (Exception exc) { MessageBox.Show("You have no more matches."); }
         }
 
         private void btnViewMatches_Click(object sender, RoutedEventArgs e)
@@ -73,6 +73,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());
                 txtblNameAge.Text = NameAge();
                 txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
+                imgProfilePicture.Source = PPC.byteArrayToBitmapImage(myFindMatchesViewModel.findMatchesRepo.theirProfilePicByteArray);
             }
             catch (Exception)
             {
@@ -91,6 +92,7 @@ namespace _2019_9_3_Dating_app_XAML_.Views
                 myFindMatchesViewModel.findMatchesRepo.findThem(App.Current.Resources["loginEmail"].ToString());
                 txtblNameAge.Text = NameAge();
                 txtblShortDesc.Text = myFindMatchesViewModel.findMatchesRepo.theirShortDesc;
+                imgProfilePicture.Source = PPC.byteArrayToBitmapImage(myFindMatchesViewModel.findMatchesRepo.theirProfilePicByteArray);
             }
             catch (Exception)
             {

@@ -1,5 +1,4 @@
-﻿using _2019_9_3_Dating_app_XAML_.SELECT;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,12 +42,6 @@ namespace _2019_9_3_Dating_app_XAML_.Views
         {
             CreateAccount createAccount = new CreateAccount();
             createAccount.Show();
-            this.Close();
-        }
-        private void SELECTData_Click(object sender, RoutedEventArgs e)
-        {
-            SHOW sshow = new SHOW();
-            sshow.Show();
             this.Close();
         }
     }

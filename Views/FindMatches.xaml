@@ -76,8 +76,7 @@
             <Image x:Name="imgProfilePicture"
                        Height="690"
                        Width="490"
-                       Stretch="Uniform"
-                       StretchDirection="DownOnly"/>
+                       Stretch="Uniform"/>
 
         </StackPanel>
 

@@ -81,15 +81,6 @@
                     FontSize="20" 
                     Click="BtnCreateAccount_Click" />
 
-            <Button x:Name="SELECTData" 
-                    Margin="-175 50 0 0"
-                    Height="10" 
-                    Width="20" 
-                    HorizontalAlignment="Left" 
-                    Content=""
-                    FontSize="20" 
-                    Click="SELECTData_Click"/>
-
         </StackPanel>
     </Grid>
 </Window>
